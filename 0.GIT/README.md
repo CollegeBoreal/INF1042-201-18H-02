@@ -18,8 +18,8 @@ $ cd Developer
 ```
 * Cloner votre premier repertoire git
 ```
-$ git clone git@github.com:CollegeBoreal/INF1042-17H.git
-$ cd INF1042-17H
+$ git clone git@github.com:CollegeBoreal/INF1042-201-18H-02.git
+$ cd INF1042-201-18H-02
 ```
 
 ## Creer son premier fichier sous git (utiliser vi)
