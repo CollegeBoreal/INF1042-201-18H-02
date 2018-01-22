@@ -29,10 +29,12 @@ $ cd INF1042-201-18H-02
 $ cd 0.GIT
 ```
 
-* Creer un fichier et l'editer 
+* Creer un fichier et l'editer (i.e. remplacer monfichier par votre numero d'etudiant)
 ```
 $ vi monfichier.md
 ```
+* pour quitter vi => :wq ou : write quit
+
 * mettre le fichier en scene (add to stage)
 ```
 $ git add monfichier.md
