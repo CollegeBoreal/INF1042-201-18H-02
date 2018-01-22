@@ -6,7 +6,7 @@ Introduction a la programmation
 
 |No| Date   | Cours               | Intitulé                                |  Structure de donnees       | Structure de controle  |
 |--|--------|:--------------------|:----------------------------------------|:----------------------------|------------------------| 
-| 1|22-01-18|[0.Git](0.Git)       | Introduction a la programmation         |                             |                        |
+| 1|22-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                             |                        |
 
 ```
 ```
