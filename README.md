@@ -15,5 +15,5 @@ Introduction a la programmation
 
 |Site| Lien                                    |
 |--------------------------------|--------|
-|Manning functional-programming-in-scala   |[Manning functional-programming-in-scala](https://www.manning.com/books/functional-programming-in-scala)|
+|Manning Functional Programming in Scala   |[Manning functional-programming-in-scala](https://www.manning.com/books/functional-programming-in-scala)|
 |Companion                       |http://blog.higher-order.com/assets/fpiscompanion.pdf|
