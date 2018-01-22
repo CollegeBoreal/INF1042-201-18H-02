@@ -12,7 +12,7 @@ Ouvrir un fichier avec l'éditeur nano
 $ nano premier.s
 ```
 
-copier le contenu ci-dessous
+taper le contenu ci-dessous
 ```
 /* -- premier.s */
 /* Ceci est un commentaire */
