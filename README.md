@@ -1,7 +1,19 @@
 # INF1042-201-18H-2
 
+Introduction a la programmation
 
+## Elements de Performance
 
-Références:
+|No| Date   | Cours               | Intitulé                                |  Structure de donnees       | Structure de controle  |
+|--|--------|:--------------------|:----------------------------------------|:----------------------------|------------------------| 
+| 1|22-01-18|[0.Git](0.Git)       | Introduction a la programmation         |                             |                        |
 
-http://blog.higher-order.com/assets/fpiscompanion.pdf
+```
+```
+
+# References:
+
+|Site| Lien                                    |
+|--------------------------------|--------|
+|Manning Grokking Algorithms .   |[Manning Grokking Algorithms](https://www.manning.com/books/grokking-algorithms)|
+|Companion                       |http://blog.higher-order.com/assets/fpiscompanion.pdf|
