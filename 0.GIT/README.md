@@ -23,6 +23,12 @@ $ cd INF1042-201-18H-02
 ```
 
 ## Creer son premier fichier sous git (utiliser vi)
+
+* changer de repertoire
+```
+$ cd 0.GIT
+```
+
 * Creer un fichier et l'editer 
 ```
 $ vi monfichier.md
