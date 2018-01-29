@@ -5,4 +5,4 @@
 - Installer
 
 * Scala CLI
-* Haskell CLI
+* Haskell CLI (https://www.haskell.org/downloads)
