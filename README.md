@@ -6,8 +6,8 @@ Introduction a la programmation
 
 |No| Date   | Cours               | Intitulé                                |  Struct. donnees       | Struct. controle  |
 |--|--------|:--------------------|:----------------------------------------|:-----------------------|-------------------| 
+| 0|15-01-18| 0.Test              | _______________________________         |                        |                   |
 | 1|22-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                        |                   |
-| 1|22-01-18|  0.Test             | Installation de l'environnement         |                        |                   |
 | 2|22-01-18|  1.ASM              | Mon premier programme en assembleur     |                        |                   |
 | 3|22-01-18|  2.WorkSheet        | [2.WorkSheet#devoir](2.WorkSheet#devoir)|                        |                   |
 | 4|22-01-18|  3.Language         | [3.Language#devoir](3.Language#devoir)  |                        |                   |
