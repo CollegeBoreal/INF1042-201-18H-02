@@ -6,22 +6,21 @@ Introduction a la programmation
 
 |No| Date   | Cours               | Intitulé                                |  Struct. donnees       | Struct. controle  |
 |--|--------|:--------------------|:----------------------------------------|:-----------------------|-------------------| 
-| 0|15-01-18| 0.Test              | _______________________________         |                        |                   |
-| 1|22-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                        |                   |
-| 2|22-01-18|  1.ASM              | Mon premier programme en assembleur     |                        |                   |
-| 3|22-01-18|  2.WorkSheet        | [2.WorkSheet#devoir](2.WorkSheet#devoir)|                        |                   |
-| 4|22-01-18|  3.Language         | [3.Language#devoir](3.Language#devoir)  |                        |                   |
-| 5|22-01-18|  4.Variables        | Type de variables:                      |                        |                   |
-| 6|22-01-18|  5.Main             | Main, HOF (Higher Order Function)       |                        |                   |
-| 7|22-01-18|  6.SDLC             |                                         |                        |                   |
-| 8|22-01-18|  7.Algorithme       |                                         |                        |                   |
-| 9|22-01-18|  8.Datastructure    |                                         |                        |                   |
-|10|22-01-18|  9.LOOP             | for, pattern matching                   |                        |                   |
-|11|22-01-18| 90.OOP              |                                         |                        |                   |
-|12|22-01-18| 91.PATMAT           | Huffman                                 |                        |                   |
-|13|22-01-18| 92.BD               |                                         |                        |                   |
-|14|22-01-18| 93.Projet           |                                         |                        |                   |
-|15|22-01-18| Fin des cours       |                                         |                        |                   |
+| 1|15-01-18| 0.Test              | _______________________________         |                        |                   |
+| 2|22-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                        |                   |
+| 3|29-01-18|  1.ASM              | Mon premier programme en assembleur     |                        |                   |
+| 4|05-02-18|                     |                                         |                        |                   |
+| 5|12-02-18|                     |                                         |                        |                   |
+| 6|19-02-18|                     |                                         |                        |                   |
+| 7|26-02-18|                     |                                         |                        |                   |
+| 8|05-03-18| March Break         |                                         |                        |                   |
+| 9|12-03-18|                     |                                         |                        |                   |
+|10|19-03-18|                     |                                         |                        |                   |
+|11|26-03-18|                     |                                         |                        |                   |
+|12|02-04-18|                     |                                         |                        |                   |
+|13|09-04-18|                     |                                         |                        |                   |
+|14|16-04-18|                     |                                         |                        |                   |
+|15|23-04-18| Fin des cours       |                                         |                        |                   |
 
 
 - Functional Programming
