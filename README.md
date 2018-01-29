@@ -6,9 +6,9 @@ Introduction a la programmation
 
 |No| Date   | Cours               | Intitulé                                |  Commentaires    |
 |--|--------|:--------------------|:----------------------------------------|:-----------------|
-| 1|15-01-18| 0.Test              | _______________________________         |                  |
-| 2|22-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                  |
-| 3|29-01-18|  1.ASM              | Mon premier programme en assembleur     |                  |
+| 1|15-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                  |
+| 2|22-01-18|[1.ASM](1.ASM)       | Mon premier programme en assembleur     |                  |
+| 3|29-01-18|[2.CLI](2.CLI)       | Mon interpretation                      |                   |
 | 4|05-02-18|                     |                                         |                  |
 | 5|12-02-18|                     |                                         |                  |
 | 6|19-02-18|                     |                                         |                  |
