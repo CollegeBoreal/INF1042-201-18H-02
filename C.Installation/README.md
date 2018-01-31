@@ -13,6 +13,6 @@
 
 ## Installation de l'environnement de projet (build)
 
-* sbt: http://www.scala-sbt.org/0.13/docs/Manual-Installation.html
+* sbt: http://www.scala-sbt.org/download.html
 
 ![alt tag](./sbt.png)
