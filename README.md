@@ -42,3 +42,4 @@ Introduction a la programmation
 |--------------------------------|--------|
 |Manning Functional Programming in Scala   |[Manning functional-programming-in-scala](https://www.manning.com/books/functional-programming-in-scala)|
 |Companion                       |http://blog.higher-order.com/assets/fpiscompanion.pdf|
+|Exercises                       |https://www.scala-exercises.org/fp_in_scala|
