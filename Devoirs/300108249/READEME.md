@@ -1,4 +1,4 @@
-def binarySearch(ds: Array[Double], key: Double): Int = {
+def binarysearch(ds: Array[Double], key: Double): Int = {
    @annotation.tailrec
    def go(low: Int, mid: Int, high: Int): Int = {
       if (low > high) -mid - 1
@@ -12,3 +12,4 @@ def binarySearch(ds: Array[Double], key: Double): Int = {
    }
    go(0, 0, ds.length - 1)
 }
+   
