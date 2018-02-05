@@ -13,12 +13,12 @@ object MyModule {
   }
 
   // Type Inference
-  private def formatAbs(x: Int): Int = {
+  private def formatAbs(x: Int) = {
     val msg = "The absolute value of %d is %d"
     msg.format(x, abs(x))
   }
 
-  private def formatFactoriel(x: Int)= {
+  private def formatFactoriel(x: Int) = {
     val msg = "Le factorieal de %d est %d"
     msg.format(x, factoriel(x))
   }
