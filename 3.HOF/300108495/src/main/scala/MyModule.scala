@@ -20,6 +20,11 @@ object MyModule {
    val msg = "le factoriel de %d est %d"
    msg.format(x, factoriel(x))
  }
+ // Remplacer les deux fonctions ci-dessus en une seul
+ // en utilisant HOF
+ private formatResult[A](name: String, x: A, f: A => Boolean)  = {
+    val msg = "%s de %d est %d"
+  }
 
 
  def main(args: Array[String]): Unit ={
