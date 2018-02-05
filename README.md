@@ -11,7 +11,7 @@ Introduction a la programmation
 | 1|15-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                  |
 | 2|22-01-18|[1.ASM](1.ASM)       | Mon premier programme en assembleur     |                  |
 | 3|29-01-18|[2.CLI](2.CLI)       | Mon interpretation                      |                   |
-| 4|05-02-18|                     |                                         |                  |
+| 4|05-02-18|[3.HOF](3.HOF)       | Chapitre 2                              |                  |
 | 5|12-02-18|                     |                                         |                  |
 | 6|19-02-18|                     |                                         |                  |
 | 7|26-02-18|                     |                                         |                  |
@@ -42,3 +42,4 @@ Introduction a la programmation
 |--------------------------------|--------|
 |Manning Functional Programming in Scala   |[Manning functional-programming-in-scala](https://www.manning.com/books/functional-programming-in-scala)|
 |Companion                       |http://blog.higher-order.com/assets/fpiscompanion.pdf|
+|Exercises                       |https://www.scala-exercises.org/fp_in_scala|
