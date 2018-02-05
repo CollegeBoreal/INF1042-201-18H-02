@@ -12,7 +12,3 @@ def binarySearch(ds: Array[Double], key: Double): Int = {
    }
    go(0, 0, ds.length - 1)
 }
-def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean
-
-
-
