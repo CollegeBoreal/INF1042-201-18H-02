@@ -13,27 +13,22 @@ object MyModule {
     go(n, 1)
   }
 
-  // Type Inference
-  private def formatAbs(x: Int) = {
-    val msg = "La valeur absolue de %d est %d"
-    msg.format(x, abs(x))
-  }
-
-  private def formatFactoriel(x: Int) = {
-    val msg = "Le factoriel de %d est %d"
-    msg.format(x, factoriel(x))
-  }
-
   // Remplacer les deux fonctions ci-dessus en une seul
   // en utilisant HOF
+<<<<<<< HEAD
+  private def formatResult(name: String, x: Int, f: Int => Int) = {
+    val msg = "%s de %d est %d"
+    msg.format(name, x, f(x))
+=======
   private def formatResult[A](name: String, x: A, f: A => Boolean) = {
     val msg = "%s de %d est %d"
     msg.format(name, 2, 3)
+>>>>>>> 7edbff58b7d41859c3c9899f1d3c460193802517
   }
 
   def main(args: Array[String]): Unit = {
-    println(formatAbs(-42))
-    println(formatFactoriel(7))
+    println(formatResult("La valeur absolue", -42, abs))
+    println(formatResult("Le factoriel", 7, factoriel))
   }
 
 }
