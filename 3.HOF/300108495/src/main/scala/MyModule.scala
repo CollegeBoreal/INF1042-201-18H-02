@@ -17,7 +17,7 @@ object MyModule {
   // Type Inference
   private def formatResult(name: String, n: Int, f: Int => Int) = {
     val msg = "The %s of %d is %d."
-    msg.format(n, f(n))
+    msg.format(name, n, f(n))
   }
 
   def main(args: Array[String]): Unit = {
@@ -25,6 +25,8 @@ object MyModule {
     println(formatResult("factorial", 7, factoriel))
   }
 }
+
+
 
 
 
