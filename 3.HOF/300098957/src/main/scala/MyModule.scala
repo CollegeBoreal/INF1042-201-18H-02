@@ -26,9 +26,9 @@ object MyModule {
 
   // Remplacer les deux fonctions ci-dessus en une seul
   // en utilisant HOF
-  private formatResult[A](name: String, x: A, f: A => Boolean) = {
+  private def formatResult[A](name: String, x: A, f: A => Boolean) = {
     val msg = "%s de %d est %d"
-
+    msg.format(name, 2, 3)
   }
 
   def main(args: Array[String]): Unit = {
