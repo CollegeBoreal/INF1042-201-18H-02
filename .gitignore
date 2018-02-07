@@ -1,6 +1,13 @@
 *.class
 *.log
 
+# Haskell
+
+*.exe
+*.hi
+*.o
+
 .idea
 target
 .DS_Store
+
