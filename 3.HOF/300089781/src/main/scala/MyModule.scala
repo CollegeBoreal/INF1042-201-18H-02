@@ -25,8 +25,19 @@ object MyModule {
     msg.format(x, factorial (x))
   }
 
-  def main(args: Array[String]): Unit = {
-    println(formatAbs(-42))
-    println(formatFactorial(7))
+  // Remplacer les deux fonctions ci-dessus en une seule
+  // en utilisant HOF
+  private def formatResult(name: String, x: Int, f: Int => Int) = {
+    val msg = "La valeur absolue %s de %d est %d"
+    msg.format(name, x, f(x))
   }
+
+
+  def main(args: Array[String]): Unit = {
+    //    println(formatAbs(-42))
+//        println(formatFactorial(7))
+    println(formatResult("La valeur absolue", -42, abs))
+    println(formatResult("Le factoriel", 7, factorial))
+  }
+
 }

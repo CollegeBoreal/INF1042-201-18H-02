@@ -13,21 +13,29 @@ object MyModule {
   }
 
   // Type Inference
-  private def formatAbs(x: Int): Int = {
-    val msg = "The absolute value of %d is %d"
-    msg.format(x, abs(x))
-  }
+  //private def formatAbs(x: Int) = {
+    //val msg = "The absolute value of %d is %d"
+    //msg.format(x, abs(x))
+  //}
 
-  private def formatFactoriel(x: Int)= {
-    val msg = "Le factorieal de %d est %d"
-    msg.format(x, factoriel(x))
-  }
+  //private def formatFactoriel(x: Int) = {
+  //  val msg = "Le factoriel de %d est %d"
+  //  msg.format(x, factoriel(x))
+  //}
 
+  // Remplacer les deux fonctions ci dessus en une seule
+  //***
+  def formatResult(name: String, n: Int, f: Int => Int) = {
+    val msg = "The %s of %d is %d."
+    msg.format(name, n, f(n))
+  }
   def main (args: Array[String]): Unit = {
-    println(formatAbs(-42))
-    println(formatFactoriel(7))
+   // println(formatAbs(-42))
+   // println(formatFactoriel(7))
+    println(formatResult("Lavaleur absolue de", -42, abs))
+    println(formatResult("le factoriel de ", 7, factoriel))
   }
 
-  //
+
 }
 
