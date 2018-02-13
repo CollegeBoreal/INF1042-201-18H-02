@@ -50,5 +50,5 @@ Introduction a la programmation
 | Principes                      | Lien                                               |
 |--------------------------------|----------------------------------------------------|
 | Lambda Calculus                |https://en.wikipedia.org/wiki/Lambda_calculus       |
-| Higher-Order Function          |https://en.wikipedia.org/wiki/Higher-order_function |
+| Fonction d'ordre supérieur     |https://en.wikipedia.org/wiki/Higher-order_function |
 | Composition de fonctions       |https://en.wikipedia.org/wiki/Function_composition  |
