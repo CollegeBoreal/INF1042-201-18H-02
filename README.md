@@ -45,7 +45,7 @@ Introduction a la programmation
 |Exercises                       |https://www.scala-exercises.org/fp_in_scala|
 
 
-# Glossaire
+# Glossaire:
 
 | Principes                      | Lien                                               |
 |--------------------------------|----------------------------------------------------|
