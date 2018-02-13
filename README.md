@@ -49,4 +49,5 @@ Introduction a la programmation
 
 | Principes                      | Lien                                               |
 |--------------------------------|----------------------------------------------------|
+| Lambda Calculus                |https://en.wikipedia.org/wiki/Lambda_calculus       |
 | Composition de fonctions       |https://en.wikipedia.org/wiki/Function_composition  |
