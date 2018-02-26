@@ -6,7 +6,7 @@ Soirée video:
  
 https://www.coursera.org/learn/progfun1/home/week/1
  
- 
+``` 
 Dans la leçon 1.1, retenir :
 Les Paradigmes de Programmation (3 essentiellement)
  
@@ -42,3 +42,6 @@ Dans la leçon 1.7, retenir :
 Récursion (i.e. Tail Recursion)
  
 Le tout pour 1 heure et 20 minutes de vidéo qui remplira votre soirée
+```
+
+Pour acceder 
