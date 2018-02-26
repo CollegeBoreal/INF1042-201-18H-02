@@ -44,4 +44,3 @@ Récursion (i.e. Tail Recursion)
 Le tout pour 1 heure et 20 minutes de vidéo qui remplira votre soirée
 ```
 
-Pour acceder 
