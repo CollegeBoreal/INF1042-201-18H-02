@@ -17,6 +17,10 @@ object MyModule {
     val msg = " Le factoriel de %d est %d"
     msg.format(x, factoriel(x))
   }
+  // Remplacer les deux fuonctions ci-dessus en une seul
+  // en utulisantHOF
+
+
 
   // Type Inference
   private def formatAbs(x: Int) = {
