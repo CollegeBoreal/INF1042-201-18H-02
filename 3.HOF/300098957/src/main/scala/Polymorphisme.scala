@@ -18,7 +18,6 @@ object Polymorphisme {
       if (n >= as.length - 1) true
       else if (ordered(as(n), as(n + 1))) false
       else go(n + 1)
-=======
   def main(args: Array[String]): Unit = {
     println("ID: " + findFirst(Array("Moi", "Toi", "Elle", "Lui"), "Elle"))
     println("ID: " + findFirst(Array(15, 5, 23, 2 ), 2))
@@ -60,14 +59,11 @@ object Polymorphisme {
     def f(x: Int, y: Int) = x + y
     println("Compose: " + compose((x:Int) => x + 1, (y: Int) => y -2)(2))
 
-<<<<<<< HEAD
-=======
   def main(args: Array[String]): Unit = {
     assert( true ) // fonction affirmant que le test de la condition retourne 'true'
     assert(findFirst(Array("Moi", "Toi", "Elle", "Lui"), (x: String) => x == "Elle")==2)
     assert(findFirst(Array(15, 5, 23, 2 ), (x: Int) => x == 2) == 3)
     assert(findFirst(Array(1.2, 3.4, .2, 1.0 ), (x: Double) => x == 1.0) == 3)
->>>>>>> fe8227bd34576e3eb857c7dab2bcc2fa1076f6ec
   }
 
 }
