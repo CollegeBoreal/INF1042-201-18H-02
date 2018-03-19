@@ -18,19 +18,8 @@ object MyModule {
    def formatAbs(x: Int) = {
     val msg = "La valeur absolue de %d est %d"
     msg.format(x, abs(x))
-  }
-
-  // Remplacer les deux fonctions ci-dessus en une seul
-  // en utilisant HOF
-  private def formatresult(name: String, x: Int, f: Int=> Int) = {
-    val msg = "%s de %d est %d"
-    msg.format(name, x, f(x))
-  }
-
-
-
-  def main(args: Array[String]): Unit = {
-//    println(formatAbs(-42))
-//    println(formatFactoriel(7))
-
    }
+
+
+  }
+

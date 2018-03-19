@@ -19,10 +19,8 @@ object MyModule {
   }
   // Remplacer les deux fuonctions ci-dessus en une seul
   // en utulisantHOF
-  private formatResult[A](name: String, x: A, f: A => Boolean) = {
-    val msg ="%s de%d est %d"
 
-  }
+
 
   // Type Inference
   private def formatAbs(x: Int) = {
