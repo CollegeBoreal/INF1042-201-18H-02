@@ -46,7 +46,7 @@ object Polymorphisme {
     println("Sorted: " + isSorted(Array(1, 2, 3), (x: Int, y: Int) => x <= y))
     println("Sorted: " + isSorted(Array(4.0, 2.1, 1.5), (x: Double, y: Double) => x>= y ))
     println("curry:  " + curry((x: Int, y: Int) => x+y) (4)(2))
-    println("compose: " + compose((x: Int) => x + 1, (y: Int) => y - 2) (3))
+    println("compose: " + compose((x: Int) => x + 1, (y: Int) => y - 2) (4))
 
   }
   }
