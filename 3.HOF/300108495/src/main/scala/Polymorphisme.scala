@@ -1,5 +1,6 @@
 object Polymorphisme {
 
+<<<<<<< HEAD
   def findFirst[A](as: Array[A], p: A=> Boolean): Int = {
 
     def loop(n: Int): Int =
@@ -29,5 +30,6 @@ object Polymorphisme {
     println("Sorted: " + isSorted(Array(5.2, 2.3, 9.8), (x: Double, y: Double) => x < y))
     println("curry: " + curry((x: Int, y: Int) => x + y)(4)(2))
     println("compose: " + compose((x: Int) => x + 1 , (y: Int) => y - 2)(2))
+
   }
 }
