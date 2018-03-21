@@ -15,9 +15,27 @@ object List {
     case Cons(x, xs) => x * product(xs)
   }
 
+  val x = List(1,2,3,4,5) match {
+    case Cons(x, Cons(2, Cons(4, _))) => x
+    case Nil => 42
+    case Cons(x, Cons(y, Cons(3, Cons(4, _)))) => x + y
+    case Cons(h, t) => h + sum(t)
+    case _ => 101
+  }
+
   def apply[A](as: A*): List[A] =
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
+
+  def tail[A](as: List[A]): List[A] = as match {
+    case Nil => Nil
+    case Cons(_, t) => t
+  }
+
+  def setHead[A](as: List[A], head: A): List[A] = as match {
+    case Nil => Nil
+    case Cons(_, t) => Cons(head, t)
+  }
 
   def main(args: Array[String]): Unit = {
 
@@ -28,7 +46,15 @@ object List {
     assert(product(Nil)==1.0)
     assert(product(Cons(1.0,Cons(2.0,Cons(3.0,Nil))))==6.0)
 
+    assert(List.apply(1,2)==Cons(1,Cons(2,Nil)))
     assert(List(1,2)==Cons(1,Cons(2,Nil)))
+
+    // 3.1
+    assert(x==3)
+    // 3.2
+    assert(tail(List(1,2,3))==Cons(2,(Cons(3,Nil))))
+    // 3.3
+    assert(setHead(List("Safaa","Amelie"),"Kaouther")==Cons("Kaouther",Cons("Amelie",Nil)))
 
   }
 
