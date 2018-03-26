@@ -97,7 +97,8 @@ object List {
     println ("init for List(): " + init(List()))
     assert(x == 3)
     println(x)
-    assert(setHead(List("Safaa", "Amelie"), "Kawtar") == Cons("Kawtar",Cons("Amelie",Nil)))
+    assert(setHead(List("Safa", "Amelie"), "Kawtar") == Cons("Kawtar",(Cons("Amelie",Nil))))
+
 
 
   }
