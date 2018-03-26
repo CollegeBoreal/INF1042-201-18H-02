@@ -14,6 +14,16 @@ object List {
     case Cons(_, t) => Cons(head, t)
   }
 
+  // exercice 3.4
+  def drop[A](xs: List[A], n: Int): List[A]=
+     if (n<= 0) xs
+     else xs match {
+       case Nil => Nil
+       case Cons(_, t) => drop(t,n-1)
+     }
+
+
+
   def product(ds: List[Double]): Double = ds match {
     case Nil => 1.0
     case Cons(0.0, _) => 0.0
@@ -58,5 +68,7 @@ object List {
 
     //assert(setHead(List(1, 2), 3) == Cons(2, Cons(3, Nil)))
 
+     //3.4
+    assert(drop(List(1,2,3,4),2)==List(3,4))
   }
 }

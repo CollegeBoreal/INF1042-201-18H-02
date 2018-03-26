@@ -17,7 +17,11 @@ object Tree {
    def main(args: Array[String]): Unit= {
      assert(Leaf[Int](1).size == 1)
      assert(Branch(Leaf(2.4),Leaf(1.3)).size ==3)
-     println(Branch(Leaf(2.4),Leaf(1.3)).size)
+     assert(Branch[Char](Branch(Leaf('S'),Leaf('E')),
+       Branch
+       (Branch(Leaf('R'),Leaf('G')),
+         Branch(Leaf('E'),Leaf('S')))).size== 11)
+     //println(Branch(Leaf(2.4),Leaf(1.3)).size)
    }
      //assert(true)
 
