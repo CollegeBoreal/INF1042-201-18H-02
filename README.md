@@ -14,7 +14,7 @@ Introduction a la programmation
 | 4|05-02-18|[3.HOF](3.HOF)       | Chapitre 2                              |                  |
 | 5|12-02-18|                     | Chapitre 4                              |                  |
 | 6|19-02-18|                     | Chapitre 5                              |                  |
-| 7|26-02-18|                     | Chapitre 6                              |                  |
+| 7|26-02-18|[ProgFun](https://github.com/CollegeBoreal/progfun1)   | Chapitre 6                              |                  |
 | 8|05-03-18| March Break         |                                         |                  |
 | 9|12-03-18|                     | Chapitre 7                              |                  |
 |10|19-03-18| [4.Data](4.Data)    | Chapitre 8                              |                  |
