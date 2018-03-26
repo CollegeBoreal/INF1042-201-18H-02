@@ -38,6 +38,14 @@ object List {
 
   }
 
+  // Exercice 3.4
+  def drop[A](xs: List[A], n: Int): List[A] =
+    if (n <=0) xs
+    else xs match {
+      case Nil => Nil
+      case Con(_, t) => drop(t,n-1)
+    }
+
 
   def main(args: Array[String]): Unit = {
 
@@ -58,7 +66,9 @@ object List {
 
     assert(setHead(List("Safaa","Amelie"),"Kaouther") == Cons("Kaouther",Cons("Amelie",Nil)))
 
-
+    // 3.4
+    assert(drop(List(1,2,3,4,),2)==List(3,4))
+    assert(drop)
   }
 
 
