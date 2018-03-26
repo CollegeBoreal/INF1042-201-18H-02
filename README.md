@@ -10,7 +10,7 @@ Introduction a la programmation
 |--|--------|:--------------------|:----------------------------------------|:-----------------|
 | 1|15-01-18|[0.GIT](0.GIT)       | Introduction a la programmation         |                  |
 | 2|22-01-18|[1.ASM](1.CLI/1.ASM) | Mon premier programme en assembleur     |                  |
-| 3|29-01-18|[2.CLI](1.CLI/2.SCALA)| Mon interpretation                      |                  |
+| 3|29-01-18|[2.CLI](1.CLI/2.Scala)| Mon interpretation                      |                  |
 | 4|05-02-18|[3.HOF](3.HOF)       | Chapitre 2                              |                  |
 | 5|12-02-18|                     | Chapitre 4                              |                  |
 | 6|19-02-18|                     | Chapitre 5                              |                  |
