@@ -33,9 +33,9 @@ object List {
     case Cons(_, t) => Cons(head, t)
   }
 
-  def drop[A](l: List[A], n: Int): List[A]=
-    if (n <= 0) l
-    else l match {
+  def drop[A](xs: List[A], n: Int): List[A]=
+    if (n <= 0) xs
+    else xs match {
       case Nil => Nil
       case Cons(_,t) => drop(t, n-1)
     }
@@ -71,6 +71,7 @@ object List {
       assert(x==3)
       assert(tail(List(1, 2, 3))==Cons(2,(Cons(3, Nil))))
       assert(Sethead(List("Safaa", "Amelie"), "Kaouther")==Cons("Kaouther",Cons("Amelie", Nil)))
+      assert(drop(List(1,2,3,4),2 )==List(3,4))
 
 
     }
