@@ -14,7 +14,7 @@ Introduction a la programmation
 | 4|05-02-18|[2.Scala](2.Scala)    | Programmation Fonctionelle              | Scala                     |
 | 4|12-02-18|[ProgFun](https://github.com/CollegeBoreal/progfun1)| Definitions|                          |
 | 6|19-02-18|[3.HOF](3.HOF)        | Chapitre 2                              | Recursion                 |
-| 7|26-02-18|                      |                                         | Parametric PolyMorphism   |
+| 7|26-02-18|                      |                                         | [Parametric PolyMorphism](https://en.wikipedia.org/wiki/Type_variable)   |
 | 8|05-03-18| March Break          |                                         |                           |
 | 9|12-03-18|                      |                                         |                           |
 |10|19-03-18| [4.Data](4.Data)     |                                         | Functional Data Structure |
