@@ -40,9 +40,9 @@ object List {
     case Cons(_, tail) => Cons(h, tail)
   }
   // Exercice 3.4
-  def drop[A](elem: List[A], n: Int): List[A] = elem match {
+  def drop[A](xs: List[A], n: Int): List[A] = xs match {
     case Nil => Nil
-    case _ if n == 0 => elem
+    case _ if n == 0 => xs
     case Cons(_, tail) => drop(tail, n-1)
   }
   // Exercice 3.5
@@ -75,6 +75,8 @@ object List {
     assert(product(Cons(1.0,Cons(2.0,Cons(3.0,Nil))))== 6.0)
     assert(List(1,2) == Cons(1,(Cons(2,Nil))))
     assert(tail(List(1,2,3)) == Cons(2, Cons(3,Nil)))
+    assert(drop(List(1,2,3,4),2)== List(3,4))
+    assert(drop(List(2.4,5.2,3.4,4.4,4.2),3)== List(4.4,4.2))
     println("Tail List(1,2,3,4): " + List.tail(List(1,2,3,4)))
     println("Tail List(1): " + List.tail(List(1)))
     println("Tail List(): " + List.tail(List()))
