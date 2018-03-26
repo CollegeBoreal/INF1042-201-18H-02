@@ -37,6 +37,14 @@ object List {
     case Cons(_, t) => Cons(head, t)
   }
 
+  // Exercise 3.4
+  def drop[A](xs: List[A], n: Int): List[A] =
+    if (n <= 0) xs
+    else xs match {
+      case Nil => Nil
+      case Cons(_, t) => drop(t,n-1)
+    }
+
   def main(args: Array[String]): Unit = {
 
     assert(sum(Nil)==0)
@@ -55,6 +63,11 @@ object List {
     assert(tail(List(1,2,3))==Cons(2,(Cons(3,Nil))))
     // 3.3
     assert(setHead(List("Safaa","Amelie"),"Kaouther")==Cons("Kaouther",Cons("Amelie",Nil)))
+
+    // 3.4
+    assert(drop(List(1,2,3,4),2)==List(3,4))
+    assert(drop(List(2.4,5.2,3.4,4.4,4.2),3)==List(4.4,4.2))
+
 
   }
 
