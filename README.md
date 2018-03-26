@@ -17,7 +17,7 @@ Introduction a la programmation
 | 7|26-02-18|                     | Chapitre 6                              |                  |
 | 8|05-03-18| March Break         |                                         |                  |
 | 9|12-03-18|                     | Chapitre 7                              |                  |
-|10|19-03-18|                     | Chapitre 8                              |                  |
+|10|19-03-18| [4.Data](4.Data)    | Chapitre 8                              |                  |
 |11|26-03-18|                     | Chapitre 9                              |                  |
 |12|02-04-18|                     | Chapitre 10                             |                  |
 |13|09-04-18|                     | Chapitre 11                             |                  |
