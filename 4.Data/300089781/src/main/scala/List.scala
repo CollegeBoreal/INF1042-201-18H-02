@@ -29,7 +29,26 @@ def tail[A](elem: List[A]): List[A] = elem match {
   case Cons(_, t) => t
 }
 
+def drop[A](xs: List[A], n: Int): List[A] =
+  if (n <= 0) xs
+  else xs match {
+    case Nil => Nil
+    case Cons(_, t) => drop(t, n-1)
+  }
 
+
+def dropWhile[A](xs: List[A], p: A => Boolean): List[A] = xs match {
+    case Nil => Nil
+    case Cons(h, t) if (p(h)) => Cons(h,dropWhile(t,p))
+    case Cons(h, t) => dropWhile(t,p)
+
+  }
+
+  def init[A](xs: List[A]): List[A] = xs match {
+    case Nil => sys.error("Init of empty list")
+    case Cons(_, Nil) => Nil
+    case Cons(h, t) => Cons(h,init(t))
+  }
 
   def main(args: Array[String]): Unit = {
 
@@ -41,6 +60,10 @@ def tail[A](elem: List[A]): List[A] = elem match {
     assert(List(1,2)==Cons(1, Cons(2, Nil)))
     assert(x==3)
     assert(tail(List(1, 2,3)) == Cons(2, Cons(3, Nil)))
+    assert(drop(List(1,2,3,4),2)==List(3,4))
+    assert(dropWhile(List(1,2,3,4,5), (x: Int) => x % 2 ==0) == List(2,4))
+    assert(init(List(1,2,3,4))==List(1,2,3))
+
   }
 
 
