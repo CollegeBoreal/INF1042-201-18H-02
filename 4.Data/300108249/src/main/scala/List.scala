@@ -78,4 +78,4 @@ object List {
     // 3.6
     assert(init(List(1,2,3,4))==List(1,2,3))
   }
-}
+}  
