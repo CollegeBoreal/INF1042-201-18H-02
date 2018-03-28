@@ -21,9 +21,6 @@ object List {
     case Cons(h, t) => h + sum(t)
     case _ => 101
   }
-  def apply[A](as: A*): List[A] =
-    if (as.isEmpty) Nil
-    else Cons(as.head, apply(as.tail: _*))
   //exo 3.2
   def tail[A](as: List[A]): List[A] = as match {
     case Nil => Nil
@@ -35,26 +32,11 @@ object List {
     case Cons(_, t) => Cons(head, t)
   }
 
-//exo 4
-  def drop [A](xs: List[A], n: Int): List[A] =
-    if (n <= 0) xs
-    else xs match {
-      case Nil => Nil
-      case Cons(_, t) => drop(t,n-1)
-    }
-  //exo 5
-  def dropWhile[A](xs: List[A], p: A => Boolean): List [A] = xs match {
-    case Nil => Nil
-    case Cons(h, t)if (p(h)) => Cons(h,dropWhile(t,p))
-    case Cons(h, t) => dropWhile(t,p)
-  }
-  //exo6
-  def init[A](xs: List[A]): List[A] = xs match{
-    case Nil => sys.error("Init of empty list")
-    case Cons(_, Nil) => Nil
-    case Cons(h, t) => Cons(h,init(t))
-  }
 
+
+  def apply[A](as:A*): List[A] =
+    if (as.isEmpty) Nil
+    else Cons(as.head, apply(as.tail:_*))
   def main(args: Array[String]): Unit = {
 
     assert(sum(Nil)==0)
@@ -71,11 +53,5 @@ object List {
     assert(tail(List(1, 2, 3))==Cons(2,(Cons(3, Nil))))
     //3.3
     assert(setHead(List("Safaa","Amelie"),"Kaouther")==Cons("Kaouther",Cons("Amelie",Nil)))
-    //3.4
-    assert(drop(List(1,2,3,4),2)==List(3,4))
-    //3.5
-    assert(dropWhile(List(1,2,3,4,5),(x: Int) => x % 2 ==0) == List(2,4))
-    // 3.6
-    assert(init(List(1,2,3,4))==List(1,2,3))
   }
-}  
+}
