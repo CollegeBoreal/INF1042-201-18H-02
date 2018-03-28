@@ -31,41 +31,7 @@ object List {
     case Nil => Nil
     case Cons(_, t) => Cons(head, t)
   }
-//exo 3.4
-  def drop[A](xs: List[A], n: Int): List[A]=
-    if (n <= 0) xs
-    else xs match {
-      case Nil => Nil
-      case Cons(_,t) => drop(t, n-1)
-    }
-  
-  //exo 3.5
-  def dropWhile[A](l: List[A], f: A => Boolean): List[A] =
-    l match {
-      case Cons(h,t) if f(h) => dropWhile(t, f)
-      case _ => l
-    }
-  //exo 3.6
-  
-  def init[A](l: List[A]): List[A] =
-    l match {
-      case Nil => sys.error("init of empty list")
-      case Cons(_,Nil) => Nil
-      case Cons(h,t) => Cons(h,init(t))
-    }
-  def init2[A](l: List[A]): List[A] = {
-    import collection.mutable.ListBuffer
-    val buf = new ListBuffer[A]
 
-    @annotation.tailrec
-    def go(cur: List[A]): List[A] = cur match {
-      case Nil => sys.error("init of empty list")
-      case Cons(_, Nil) => List(buf.toList: _*)
-      case Cons(h, t) => buf += h; go(t)
-    }
-
-    go(l)
-}
 
 
   def apply[A](as:A*): List[A] =
@@ -87,7 +53,5 @@ object List {
     assert(tail(List(1, 2, 3))==Cons(2,(Cons(3, Nil))))
     //3.3
     assert(setHead(List("Safaa","Amelie"),"Kaouther")==Cons("Kaouther",Cons("Amelie",Nil)))
-    //
-    assert(drop(List(1,2,3,4),2 )==List(3,4))
   }
 }
