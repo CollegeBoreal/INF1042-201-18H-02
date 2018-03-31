@@ -18,7 +18,7 @@ def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean
 
 Exercice 3.25 a 3.29 page 46
 
-L'exercice 3.25 a ete fait en classe : Programme Tree.scala
+L'exercice 3.25 a ete fait en classe : Programme [Tree.scala](../4.Data/300098957/src/main/scala/Tree.scala)
 
 ```
 Le nombre de tests (assert) determinera la note.
