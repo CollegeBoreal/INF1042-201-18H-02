@@ -9,7 +9,7 @@ sealed trait Tree[+A] {
 case class Leaf[A](value: A) extends Tree[A]
 
 case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
-<<<<<<< HEAD
+
 object Tree {
 
   // Exercice 3.25
@@ -17,7 +17,7 @@ object Tree {
     case Leaf(_) => 1
     case Branch(l, r) => 1 + size(l) + size(r)
   }
-//Exercice 3.26
+  //Exercice 3.26
   def maximum(t: Tree[Int]): Int = t match {
     case Leaf(v) => v
     case Branch(l, r) => maximum(l) max maximum(r)
@@ -47,15 +47,6 @@ object Tree {
     fold(t)((v: A) => Leaf(f(v)): Tree[B])(Branch(_, _))
 
   def main(args: Array[String]): Unit = {
-=======
-
-object Tree {
-  // Exercice 3.25
-  // ...
-  // Exercice 3.29
-  def main(args: Array[String]): Unit = {
-
->>>>>>> 497d645567badf2c4d99ee6d756e45c717b45967
     assert(Leaf[Int](1).size==1)
     assert(Branch[Double](Leaf[Double](2.4),Leaf[Double](1.3)).size==3)
     assert(Branch[Char](
@@ -63,8 +54,6 @@ object Tree {
       Branch(
         Branch(Leaf('R'),Leaf('G')),
         Branch(Leaf('E'),Leaf('S')))).size==11)
-<<<<<<< HEAD
-
 
     //3.25
     println((Leaf(10).size))
@@ -102,15 +91,15 @@ object Tree {
     assert(map(Leaf(10))(_ * 1.5) == Leaf(15.0))
     assert(map(Branch(Leaf(10), Leaf(20)))(_ * 1.5) == Branch(Leaf(15.0), Leaf(30.0)))
     assert(map(Branch(Branch(Leaf(10), Leaf(20)), Leaf(30)))(_ * 1.5) == Branch(Branch(Leaf(15.0), Leaf(30.0)), Leaf(45.0)))
-//3.29
+    //3.29
     assert(sizeViaFold(Branch(Leaf(1.4), Leaf(2.3)))==3)
+    assert(maximumViaFold(Branch(Leaf(4), Branch(Leaf(12), Leaf(7))))==12)
     assert(depthViaFold(Branch(Leaf(1.4), Leaf(2.3)))==1)
     println(mapViaFold(Leaf(10))(_ % 2))
     assert(mapViaFold(Leaf(10))(_ % 2)==Leaf(0))
     println(mapViaFold(Leaf(10))(_ * 4))
     assert(mapViaFold(Leaf(10))(_ * 4)==Leaf(40))
 
-=======
->>>>>>> 497d645567badf2c4d99ee6d756e45c717b45967
+
   }
 }
