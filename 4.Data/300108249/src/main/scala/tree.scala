@@ -1,4 +1,5 @@
 sealed trait Tree[+A] {
+
   def size: Int = this match {
     case Leaf(_) => 1
     case Branch(l,r) => (l.size + r.size) + 1
@@ -6,7 +7,9 @@ sealed trait Tree[+A] {
 }
 
 case class Leaf[A](value: A) extends Tree[A]
+
 case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
+<<<<<<< HEAD
 object Tree {
 
   // Exercice 3.25
@@ -44,6 +47,15 @@ object Tree {
     fold(t)((v: A) => Leaf(f(v)): Tree[B])(Branch(_, _))
 
   def main(args: Array[String]): Unit = {
+=======
+
+object Tree {
+  // Exercice 3.25
+  // ...
+  // Exercice 3.29
+  def main(args: Array[String]): Unit = {
+
+>>>>>>> 497d645567badf2c4d99ee6d756e45c717b45967
     assert(Leaf[Int](1).size==1)
     assert(Branch[Double](Leaf[Double](2.4),Leaf[Double](1.3)).size==3)
     assert(Branch[Char](
@@ -51,6 +63,7 @@ object Tree {
       Branch(
         Branch(Leaf('R'),Leaf('G')),
         Branch(Leaf('E'),Leaf('S')))).size==11)
+<<<<<<< HEAD
 
 
     //3.25
@@ -97,5 +110,7 @@ object Tree {
     println(mapViaFold(Leaf(10))(_ * 4))
     assert(mapViaFold(Leaf(10))(_ * 4)==Leaf(40))
 
+=======
+>>>>>>> 497d645567badf2c4d99ee6d756e45c717b45967
   }
 }
