@@ -55,7 +55,11 @@ def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B = t match {
       Branch(Leaf('S'), Leaf('E'))
     Branch(Leaf('E'), Leaf('M')).size == 10
     assert(Leaf[Int](3).size == 1)
-
+    assert(maximum(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 18)
+    assert(depth(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 3)
+    assert(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 6)
+    assert(maximum(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 3)
+    assert(depthV(Tree[Int])(Branch(Leaf(1),Leaf(2)),Leaf(3)) == 2)
 
   }
 }

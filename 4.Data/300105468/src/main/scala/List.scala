@@ -29,6 +29,13 @@ object List {
     case Nil => Nil
     case Cons(_, t) => t
   }
+  // Exercice 3.4
+  def drop[A] (xs: List[A], n: Int): List[A] =
+    if (n <= 0) xs
+    else xs match {
+      case Nil => Nil
+      case Cons(_, t) => drop(t,n-1)
+    }
   def setHead[A] (as: List[A], head: A): List[A] = as match {
     case Nil => Nil
     case Cons(_, t) => Cons(head, t)
@@ -44,6 +51,7 @@ object List {
     assert(product(Cons(1.0,Cons(2.0,Cons(3.0,Nil))))==6.0)
     assert(List(1,2)==Cons(1,Cons(2,Nil)))
 
+
     // 3.1
     assert(x==3)
 
@@ -53,7 +61,9 @@ object List {
     // 3.3
     assert(setHead(List("Safaa", "Amelie"), "Kaouther")==Cons("Kaouther",Cons("Amelie", Nil)))
 
-
+// 3.4
+    assert(drop(List(1,2,3,4),2)==List(3,4))
+    assert(drop(List(2.4,5.2,3.4,4.4,4.2),3)==List(4.4,4.2))
 
 
   }
