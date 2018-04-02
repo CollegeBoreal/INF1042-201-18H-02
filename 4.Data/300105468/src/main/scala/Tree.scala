@@ -57,5 +57,6 @@ def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B = t match {
     assert(Leaf[Int](3).size == 1)
 
 
+
   }
 }
