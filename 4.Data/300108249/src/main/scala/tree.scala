@@ -38,7 +38,8 @@ object Tree {
     case Branch(l, r) => g(fold(l)(f)(g), fold(r)(f)(g))
   }
   def sizeViaFold[A](t: Tree[A]): Int =
-    fold(t)(_ => 1)(1 + _ + _)
+
+  fold(t)(_ => 1)(1 + _ + _)
   def maximumViaFold[A](t: Tree[Int]): Int =
     fold(t)((v: Int) => v)(_ max _)
   def depthViaFold[A](t: Tree[A]): Int =
@@ -47,6 +48,7 @@ object Tree {
     fold(t)((v: A) => Leaf(f(v)): Tree[B])(Branch(_, _))
 
   def main(args: Array[String]): Unit = {
+
     assert(Leaf[Int](1).size==1)
     assert(Branch[Double](Leaf[Double](2.4),Leaf[Double](1.3)).size==3)
     assert(Branch[Char](
@@ -93,7 +95,7 @@ object Tree {
     assert(map(Branch(Branch(Leaf(10), Leaf(20)), Leaf(30)))(_ * 1.5) == Branch(Branch(Leaf(15.0), Leaf(30.0)), Leaf(45.0)))
 //3.29
     assert(sizeViaFold(Branch(Leaf(1.4), Leaf(2.3)))==3)
-    assert(depthViaFold(Branch(Leaf(1.4), Leaf(2.3)))==1)
+    assert(maximumViaFold(Branch(Leaf(4), Branch(Leaf(12), Leaf(7))))==12)
     println(mapViaFold(Leaf(10))(_ % 2))
     assert(mapViaFold(Leaf(10))(_ % 2)==Leaf(0))
     println(mapViaFold(Leaf(10))(_ * 4))
