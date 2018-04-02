@@ -12,7 +12,7 @@ object List {
   def product(ds: List[Double]): Double = ds match {
     case Nil => 1.0
     case Cons(0.0, _) => 0.0
-    case Cons(x, xs) => x * product(xs)
+    case Cons(x, ds) => x * product(ds)
   }
 
   def apply[A](as: A*): List[A] =
@@ -40,66 +40,42 @@ object List {
     case Cons(_, tail) => Cons(h, tail)
   }
   // Exercice 3.4
-  def drop[A](elem: List[A], n: Int): List[A] = elem match {
+  def drop[A](xs: List[A], n: Int): List[A] = xs match {
     case Nil => Nil
-    case _ if n == 0 => elem
+    case _ if n == 0 => xs
     case Cons(_, tail) => drop(tail, n-1)
   }
   // Exercice 3.5
-  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match{
+  def dropWhile[A](xs: List[A], p: A => Boolean): List[A] = xs match {
     case Nil => Nil
-    case Cons(head, tail) if f(head) => dropWhile(tail, f)
-    case _ => l
+    case Cons(h, t) if (p(h)) => Cons(h,dropWhile(t,p))
+    case Cons(h, t) => dropWhile(t, p)
   }
   // Exercice 3.6
-  def init[A](l: List[A]): List[A] = {
-    init(l, Nil)
-  }
-  private def init[A](in: List[A], out: List[A]): List[A] = in match {
-    case Nil => Nil
-    case Cons(last, Nil) => out
-    case Cons(head, tail) => init(tail, append(out, List(head)))
-  }
-  def append[A](a1: List[A], a2: List[A]): List[A] = a1 match {
-    case Nil => a2
-    case Cons(h,t) => Cons(h, append(t, a2))
+  def init[A](xs: List[A]): List[A] = xs match {
+    case Nil => sys.error("Init of empty list")
+    case Cons(_, Nil) => Nil
+    case Cons(h, t) => Cons(h, init(t))
 
   }
 
 
   def main(args: Array[String]): Unit = {
     assert(sum(Nil) == 0)
-    assert(sum(Cons(1,Nil)) == 1)
+    assert(sum(Cons(1,Nil))== 1)
     assert(sum(Cons(1,Cons(2,Nil)))==3)
     assert(product(Nil) == 1.0)
     assert(product(Cons(1.0,Cons(2.0,Cons(3.0,Nil))))== 6.0)
     assert(List(1,2) == Cons(1,(Cons(2,Nil))))
     assert(tail(List(1,2,3)) == Cons(2, Cons(3,Nil)))
-    println("Tail List(1,2,3,4): " + List.tail(List(1,2,3,4)))
-    println("Tail List(1): " + List.tail(List(1)))
-    println("Tail List(): " + List.tail(List()))
-    println("Tail Nil: " + List.tail(Nil))
-    println("serHaed List(1,2,3,4), 0: " + List.setHead(List(1,2,3,4),0))
-    println("serHaed List(1), 0: " + List.setHead(List(1),0))
-    println("serHaed List(), 0: " + List.setHead(List(),0))
-    println("serHaed Nil, 0: " + List.setHead(Nil,0))
-    println("drop list(1,2,3,4), 2: " + List.drop(List(1,2,3,4),2))
-    println("drop list(1), 0: " + List.drop(List(1),0))
-    println("drop list(1), 1: " + List.drop(List(1),1))
-    println("drop list(1), 10: " + List.drop(List(1),10))
-    println("drop list(), 10: " + List.drop(List(),10))
-    println("drop list(Nil), 1: " + List.drop(List(Nil),1))
-    println ("dropWile (x<=3) in List(1,2,3,4,5) = " + dropWhile(List(1,2,3,4,5), (x: Int) => (x <= 3)))
-    println ("dropWile (x<0) in List(1,2,3,4,5) = " + dropWhile(List(1,2,3,4,5), (x: Int) => (x < 0)))
-    println ("dropWile (x<=3) in List() = " + dropWhile(List(), (x: Int) => (x <= 3)))
-    println ("init for List(1,2,3,4): " + init(List(1,2,3,4)))
-    println ("init for List(1): " + init(List(1)))
-    println ("init for List(): " + init(List()))
+    assert(drop(List(1,2,3,4),2)== List(3,4))
+    assert(drop(List(2.4,5.2,3.4,4.4,4.2),3)== List(4.4,4.2))
+    assert(dropWhile(List(1,2,3,4,5),(x: Int) => x % 2 == 0) == List(2,4))
+    assert(dropWhile(Nil, (x: Int) => x < -1) == Nil)
+    assert(dropWhile(List(3,6,1,2), (x: Int) => x == 1) == List(1))
     assert(x == 3)
     println(x)
     assert(setHead(List("Safa", "Amelie"), "Kawtar") == Cons("Kawtar",(Cons("Amelie",Nil))))
-
-
 
   }
 }
