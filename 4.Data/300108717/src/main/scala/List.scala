@@ -22,7 +22,19 @@ object List {
        case Cons(_, t) => drop(t,n-1)
      }
 
+//exercice 3.5
+  def dropWhile[A](xs: List[A], p: A => Boolean): List[A] = xs match {
+    case Nil => Nil
+    case Cons(h, t) if (p(h)) => Cons(h,dropWhile(t,p))
+    case Cons(h, t) => dropWhile(t,p)
+  }
 
+  //exercice6
+   def init[A](xs: List[A]): List[A] = xs match {
+     case Nil => sys.error("Init of empty list")
+     case Cons(_, Nil)=> Nil
+       case Cons(h,t) => Cons(h,init(t))
+   }
 
   def product(ds: List[Double]): Double = ds match {
     case Nil => 1.0
@@ -70,5 +82,8 @@ object List {
 
      //3.4
     assert(drop(List(1,2,3,4),2)==List(3,4))
+    //3.5
+    assert(dropWhile(List(1,2,3,4,5),(x: Int) => x% 2 ==0)== List(2,4))
+    assert(dropWhile(Nil, (x:Int) => x < -1)==Nil)
   }
 }
