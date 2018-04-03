@@ -5,7 +5,7 @@ $ sbt run
 
 ...
 
-[warn] Multiple main classes detected.  Run 'show discoveredMainClasses' to see the list
+[warn] Multiple main classes detected.  Run "show discoveredMainClasses" to see the list
 
 Multiple main classes detected, select one to run:
 
