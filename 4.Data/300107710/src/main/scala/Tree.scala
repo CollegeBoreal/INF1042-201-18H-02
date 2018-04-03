@@ -30,7 +30,8 @@ object Tree {
 
   def depth[A](t: Tree[A]): Int = t match {
     case Leaf(_) => 0
-    case Branch(l,r) => 1 + (depth(l) max depth(r)) }
+    case Branch(l,r) => 1 + (depth(l) max depth(r))
+  }
 
 
   // Exercice 3.28
@@ -61,19 +62,19 @@ object Tree {
 
   def main(args: Array[String]): Unit = {
     assert(Leaf[Int](1).size == 1)
-    assert(Branch[Double](Leaf[Double](2.4),Leaf[Double](1.3)).size==3)
-    assert(Branch[Char](Branch(Leaf('S'),Leaf('E')),Branch(Branch(Leaf('R'),Leaf('G')), Branch(Leaf('E'),Leaf('S')))).size==11)
+//    assert(Branch[Double](Leaf[Double](2.4),Leaf[Double](1.3)).size==3)
+//    assert(Branch[Char](Branch(Leaf('S'),Leaf('E')),Branch(Branch(Leaf('R'),Leaf('G')), Branch(Leaf('E'),Leaf('S')))).size==11)
 
     //assert(Branch,Branch(Leaf(1), Leaf(2)), Leaf(3))).size == 5)
 
-    //assert(size(Tree(Branch(Branch(Leaf(1), Leaf(2)), Leaf(3)))) ==  5
-    assert(maximum(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 16)
-    assert(depth(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 3)
-    //assert(map(Branch(Leaf(1),Leaf(2))) == 4)
+    assert(size(Branch(Leaf(1), Leaf(2))) == 3)
+ //   assert(maximum(Branch(Leaf(1),Leaf(2))) == 3)
+    assert(depth(Branch(Leaf(1),Leaf(2))) == 1 + depth(Leaf(1)) + depth(Leaf(2)))
+//    assert(map(Branch(Leaf(1),Leaf(2)),(f: A => B) == map(a,f)map(b,f)))
     assert(sizeViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 5)
     assert(maximumViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 3)
-    assert(depthViaFold(Tree[Int])(Branch(Leaf(1),Leaf(2)),Leaf(3)) == 2)
-    //assert(mapViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3)))(_%2 == 0) == 2)
+//    assert(depthViaFold(Branch(Leaf(1),Leaf(2))) == 2)
+//    assert(mapViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3)))(_%2 == 0) == 1)
 
     assert(true)
   }

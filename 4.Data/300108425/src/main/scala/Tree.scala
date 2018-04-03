@@ -63,7 +63,7 @@ object Tree{
   def mapViaFold[A, B](t: Tree[A])(f: A => B): Tree[B] =
     fold(t)((s: A) => Leaf(f(s)): Tree[B])(Branch(_, _))
   }
-   def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit = {
     assert(Leaf[Int](1).size == 1)
     assert(Branch(Leaf(2.4), Leaf(1.3)).size == 3)
     assert((Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 16)
