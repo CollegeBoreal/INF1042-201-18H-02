@@ -1,10 +1,10 @@
 
 
-```
+```scala
 
 $ sbt run
 
-...scala
+...
 
 [info] Compiling 2 Scala sources to /Users/valiha/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300108495/target/scala-2.12/classes ...
 [error] /Users/valiha/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300108495/src/main/scala/tree.scala:65:29: object Tree does not take type parameters.
