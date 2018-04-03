@@ -24,9 +24,7 @@ object Tree {
   // Exercice 3.27
   def depth[A](t: Tree[A]): Int = t match {
    case Leaf(_) => 1
-    // Exercice
-    case Branch(l, r) => 3
-      (depth(l) max depth(r))
+
   }
     // Exercice 3.28
 
