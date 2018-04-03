@@ -1,7 +1,7 @@
 import State._
 
 case class State[S, +A](run: S => (A, S)) {
-  def map[B](f: A => B): State[S, B] = flatMap(a => unit(f(a)))
+  def map[B](f: A => B): State[S, B] = flatMap(a => Unit(f(a)))
 
   def map2[B, c](sb: State[S, B])(f: (A,B) => C): State[S, C] = for (a <- this; b<- sb) yield f(a, b)
 
