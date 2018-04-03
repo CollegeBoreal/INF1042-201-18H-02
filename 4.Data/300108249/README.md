@@ -1,6 +1,10 @@
 #
 
 ```
+$ sbt run
+
+...
+
 Multiple main classes detected, select one to run:
 
  [1] List
