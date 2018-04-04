@@ -1,4 +1,24 @@
 
+```scala
+
+$ sbt run
+...
+
+Multiple main classes detected, select one to run:
+
+ [1] List
+ [2] Tree
+[info] Packaging /Users/300098957/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300108495/target/scala-2.12/300108495_2.12-0.1.jar ...
+[info] Done packaging.
+
+Enter number: 2
+
+[info] Running Tree 
+3
+[success] Total time: 17 s, completed 3-Apr-2018 3:26:47 PM
+```
+
+-------------
 
 ```scala
 

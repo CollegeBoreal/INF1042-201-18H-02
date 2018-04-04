@@ -1,4 +1,26 @@
 
+```scala
+
+$ sbt run
+
+[info]   Compilation completed in 8.425s.
+[error] /Users/valiha/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300089059/src/main/scala/Tree.scala:34:1: expected class or object definition
+[error] def fold[A, B](t: Tree[A])(f: A => B)(g: (B, B) => B): B = t match {
+[error] ^
+[error] /Users/valiha/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300089059/src/main/scala/Tree.scala:38:1: expected class or object definition
+[error] def sizeViaFold[A](t: Tree[A]): Int =
+[error] ^
+[error] /Users/valiha/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300089059/src/main/scala/Tree.scala:43:3: expected class or object definition
+[error]   def main(args: Array[String]): Unit = {
+[error]   ^
+[error] /Users/valiha/Developer/CollegeBoreal/INF1042-201-18H-02/4.Data/300089059/src/main/scala/Tree.scala:69:5: Unmatched closing brace '}' ignored here
+[error]     }
+[error]     ^
+[error] four errors found
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 10 s, completed Apr 4, 2018 8:23:28 AM
+```
+
 
 ```scala
 
