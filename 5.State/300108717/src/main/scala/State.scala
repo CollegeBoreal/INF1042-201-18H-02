@@ -14,25 +14,24 @@ case class State[S, +A](run: S => (A, S)) {
 }
 
 
-
 object State {
 
 
 
   def unit[S, A](a: A): State[S, A] = State(s => (a, s))
 
+  def sequenceViaFoldRight[S,A](sas: List[State[S, A]]): State[S, List[A]] =
+    sas.foldRight(unit[S, List[A]](List()))((f, acc) => f.map2(acc)(_ ::_))
 
 
-  def sequence[S, A](sas: List[State[S, A]]): State[S, List[A]] = ???
+  def sequence[S, A](sas: List[State[S, A]]): State[S, List[A]] = sequenceViaFoldRight(sas)
 
 
 
   def modify[S](f: S => S): State[S, Unit] = get.flatMap(s => set(f(s)).map { case _ => () })
 
 
-
   def get[S]: State[S, S] = State(s => (s, s))
-
 
 
   def set[S](s: S): State[S, Unit] = State(_ => ((), s))
