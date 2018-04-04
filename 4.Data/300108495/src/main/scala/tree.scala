@@ -55,7 +55,15 @@ object Tree{
     println(Branch(Leaf(1.2), Leaf(2.3)).size)
     assert(Leaf(2).maximum == 1)
     assert(Leaf(3).depth == 0)
-    println(map(Leaf(2), (x:Int)=>x+1 ))
+    assert(Branch(Leaf(1), Leaf(2)).depth == 1)
+    assert(map(Leaf(10))(_ * 2) == Leaf(20))
+    assert(map(Branch(Leaf(10), Leaf(20)))(_ * 2) == Branch(Leaf(20), Leaf(40)))
+    assert(sizeViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 5)
+    assert(maximumViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 3)
+    assert(mapViaFold(Leaf(10))(_ * 2)==Leaf(20))
+    assert(mapViaFold(Branch(Leaf(10), Leaf(20)))(_ * 2) == Branch(Leaf(20), Leaf(40)))
+
+
 
 
 

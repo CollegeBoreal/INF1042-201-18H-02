@@ -17,11 +17,11 @@ Introduction a la programmation
 | 7|26-02-18|                      |                                         | [Parametric PolyMorphism](https://en.wikipedia.org/wiki/Type_variable)   |
 | 8|05-03-18| March Break          |                                         |                           |
 | 9|12-03-18|                      |                                         |                           |
-|10|19-03-18| [4.Data](4.Data)     |                                         | Functional Data Structure |
-|11|26-03-18|                      | Chapitre 9                              |                           |
-|12|02-04-18|                      | Chapitre 10                             |                           |
-|13|09-04-18|                      | Chapitre 11                             |                           |
-|14|16-04-18|                      | Chapitre 12                             |                           |
+|10|19-03-18| [4.Data](4.Data)     | Chapitre 3                              | Functional Data Structure |
+|11|26-03-18|                      |                                         |                           |
+|12|02-04-18| [5.State](5.State)   | Chapitre 6                              | Functional State          |
+|13|09-04-18|                      |                                         |                           |
+|14|16-04-18|                      |                                         |                           |
 |15|23-04-18| Fin des cours        |                                         |                           |
 
 
