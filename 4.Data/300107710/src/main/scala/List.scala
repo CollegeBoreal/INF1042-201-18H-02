@@ -61,21 +61,21 @@ object List {
 
 
   def main(args: Array[String]): Unit = {
-    assert(sum(Nil) == 0)
-    assert(sum(Cons(1,Nil))== 1)
-    assert(sum(Cons(1,Cons(2,Nil)))==3)
-    assert(product(Nil) == 1.0)
-    assert(product(Cons(1.0,Cons(2.0,Cons(3.0,Nil))))== 6.0)
-    assert(List(1,2) == Cons(1,(Cons(2,Nil))))
-    assert(tail(List(1,2,3)) == Cons(2, Cons(3,Nil)))
-    assert(drop(List(1,2,3,4),2)== List(3,4))
-    assert(drop(List(2.4,5.2,3.4,4.4,4.2),3)== List(4.4,4.2))
-    assert(dropWhile(List(1,2,3,4,5),(x: Int) => x % 2 == 0) == List(2,4))
-    assert(dropWhile(Nil, (x: Int) => x < -1) == Nil)
-    assert(dropWhile(List(3,6,1,2), (x: Int) => x == 1) == List(1))
-    assert(x == 3)
-    println(x)
-    assert(setHead(List("Safa", "Amelie"), "Kawtar") == Cons("Kawtar",(Cons("Amelie",Nil))))
+ //   assert(sum(Nil) == 0)
+ //   assert(sum(Cons(1,Nil))== 1)
+  //  assert(sum(Cons(1,Cons(2,Nil)))==3)
+  //  assert(product(Nil) == 1.0)
+ //   assert(product(Cons(1.0,Cons(2.0,Cons(3.0,Nil))))== 6.0)
+  //  assert(List(1,2) == Cons(1,(Cons(2,Nil))))
+  //  assert(tail(List(1,2,3)) == Cons(2, Cons(3,Nil)))
+  //  assert(drop(List(1,2,3,4),2)== List(3,4))
+  //  assert(drop(List(2.4,5.2,3.4,4.4,4.2),3)== List(4.4,4.2))
+//    assert(dropWhile(List(1,2,3,4,5),(x: Int) => x % 2 == 0) == List(2,4))
+  //  assert(dropWhile(Nil, (x: Int) => x < -1) == Nil)
+ //   assert(dropWhile(List(3,6,1,2), (x: Int) => x == 1) == List(1))
+  //  assert(x == 3)
+  //  println(x)
+  //  assert(setHead(List("Safa", "Amelie"), "Kawtar") == Cons("Kawtar",(Cons("Amelie",Nil))))
 
   }
 }

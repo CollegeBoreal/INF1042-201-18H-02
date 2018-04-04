@@ -17,7 +17,7 @@ object Tree {
     case Leaf(_) => 1
     case Branch(l, r) => 1 + size(l) + size(r)
   }
-//Exercice 3.26
+  //Exercice 3.26
   def maximum(t: Tree[Int]): Int = t match {
     case Leaf(v) => v
     case Branch(l, r) => maximum(l) max maximum(r)
@@ -39,7 +39,7 @@ object Tree {
   }
   def sizeViaFold[A](t: Tree[A]): Int =
 
-  fold(t)(_ => 1)(1 + _ + _)
+    fold(t)(_ => 1)(1 + _ + _)
   def maximumViaFold[A](t: Tree[Int]): Int =
     fold(t)((v: Int) => v)(_ max _)
   def depthViaFold[A](t: Tree[A]): Int =
@@ -93,7 +93,7 @@ object Tree {
     assert(map(Leaf(10))(_ * 1.5) == Leaf(15.0))
     assert(map(Branch(Leaf(10), Leaf(20)))(_ * 1.5) == Branch(Leaf(15.0), Leaf(30.0)))
     assert(map(Branch(Branch(Leaf(10), Leaf(20)), Leaf(30)))(_ * 1.5) == Branch(Branch(Leaf(15.0), Leaf(30.0)), Leaf(45.0)))
-//3.29
+    //3.29
     assert(sizeViaFold(Branch(Leaf(1.4), Leaf(2.3)))==3)
     assert(maximumViaFold(Branch(Leaf(4), Branch(Leaf(12), Leaf(7))))==12)
     println(mapViaFold(Leaf(10))(_ % 2))
