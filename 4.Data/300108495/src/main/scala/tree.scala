@@ -53,16 +53,18 @@ object Tree{
     assert(Leaf[Int](1).size==1)
     assert(true)
     println(Branch(Leaf(1.2), Leaf(2.3)).size)
-    assert(Leaf(2).maximum == 2)
+    assert(Leaf(2).maximum == 1)
     assert(Leaf(3).depth == 0)
-    assert(Branch(Leaf(1), Leaf(2)).depth == 2)
-    assert(Branch(Branch(Leaf(1), Leaf(2)), Leaf(3)).depth == 3)
+    assert(Branch(Leaf(1), Leaf(2)).depth == 1)
     assert(map(Leaf(10))(_ * 2) == Leaf(20))
     assert(map(Branch(Leaf(10), Leaf(20)))(_ * 2) == Branch(Leaf(20), Leaf(40)))
-    assert(map(Branch(Branch(Leaf(10), Leaf(20)), Leaf(30)))(_ * 2) ==Branch(Branch(Leaf(20), Leaf(20)), Leaf(60)))
     assert(sizeViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 5)
     assert(maximumViaFold(Branch(Branch(Leaf(1),Leaf(2)),Leaf(3))) == 3)
-    assert(depthViaFold(Tree[Int])(Branch(Leaf(1),Leaf(2)),Leaf(3)) == 2)
+    assert(mapViaFold(Leaf(10))(_ * 2)==Leaf(20))
+    assert(mapViaFold(Branch(Leaf(10), Leaf(20)))(_ * 2) == Branch(Leaf(20), Leaf(40)))
+
+
+
 
 
   }

@@ -8,7 +8,7 @@ sealed trait Tree[+A]{
 case class Leaf [A](value: A) extends Tree[A]
 case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
 
-object Tree{
+object Tree {
 
 
   // exercice 3.26
@@ -41,6 +41,7 @@ object Tree{
   def sizeViaFold[A](t: Tree[A]): Int =
     fold(t)(a => 1)(1 + _ + _)
 
+
   def main(args: Array[String]): Unit = {
 
     //3.26
@@ -56,8 +57,26 @@ object Tree{
     assert(map(Branch(Leaf(20), Leaf(4)))(_ * 1.5) == Branch(Leaf(30.0), Leaf(6.0)))
     assert(map(Leaf(8))(_ * 1.5) == Leaf(12.0))
 
-    //3.29
-    assert(sizeViaFold(Branch(Leaf(1), Leaf(2))) == 3)
+    def main(args: Array[String]): Unit = {
+
+      //3.26
+      assert(maximum(Leaf(2)) == 2)
+      assert(maximum(Branch(Leaf(4), Leaf(60))) == 60)
+      assert(maximum(Branch(Branch(Leaf(11), Leaf(12)), Leaf(1))) == 12)
+
+      //3.27
+      assert(depth(Leaf(14)) == 0)
+      // assert(depth(Branch(Leaf(2), Leaf(3)))== 1)
+
+      //3.28
+      assert(map(Branch(Leaf(20), Leaf(4)))(_ * 1.5) == Branch(Leaf(30.0), Leaf(6.0)))
+      assert(map(Leaf(8))(_ * 1.5) == Leaf(12.0))
+
+
+      //3.29
+      assert(sizeViaFold(Branch(Leaf(1), Leaf(2))) == 3)
+    }
+
   }
 
 }
