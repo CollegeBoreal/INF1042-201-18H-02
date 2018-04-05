@@ -39,10 +39,11 @@ object List {
       case Nil => Nil
       case Cons(_,t) => drop(t, n-1)
     }
-  def dropWhile[A](l: List[A], f: A => Boolean): List[A] =
-    l match {
-      case Cons(h,t) if f(h) => dropWhile(t, f)
-      case _ => l
+  def dropWhile[A](xs: List[A], f: A => Boolean): List[A] =
+    xs match {
+      case  Nil => Nil
+      case Cons(h,t) if f(h)  => Cons(h, dropWhile(t, f))
+      case Cons(h,t) => dropWhile(t, f)
     }
   def init[A](l: List[A]): List[A] =
     l match {
@@ -72,6 +73,9 @@ object List {
       assert(tail(List(1, 2, 3))==Cons(2,(Cons(3, Nil))))
       assert(Sethead(List("Safaa", "Amelie"), "Kaouther")==Cons("Kaouther",Cons("Amelie", Nil)))
       assert(drop(List(1,2,3,4),2 )==List(3,4))
+      assert(dropWhile(List(1,2,3,4,5), (x:Int )=> x%2==0)==List(2,4))
+      assert(init(List(1,2,3,4))==List(1,2,3))
+
 
 
     }
