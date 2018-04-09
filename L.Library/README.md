@@ -1,6 +1,6 @@
 # Library
 
-## Create a new Scala project (with IntelliJ)
+## Create a new Scala project (with Git Bash [Windows] or Terminal [Mac])
 
 ```shell
 $ sbt new scala/scala-seed.g8 --name=<my ID>
