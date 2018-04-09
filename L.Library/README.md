@@ -4,6 +4,7 @@
 
 ```shell
 $ sbt new scala/scala-seed.g8 --name=<my ID>
+$ cd <my ID>
 ```
 
 ## Add the libraries
