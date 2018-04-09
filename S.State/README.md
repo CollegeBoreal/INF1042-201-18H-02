@@ -13,3 +13,5 @@ Basics of [Category Theory](https://en.wikipedia.org/wiki/Category_theory) such 
 Reference:
 
 Category Theory: https://plato.stanford.edu/entries/category-theory/
+
+Scalaz State Monad by Michael Pilquist: https://speakerdeck.com/mpilquist/scalaz-state-monad
