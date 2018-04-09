@@ -10,7 +10,7 @@ object State {
 
   def unit[S, A](a: A): State[S, A] = State(s => (a, s))
 
-  def sequence[S, A](sas: List[State[S, A]]): State[S, List[A]] = ???
+  def sequence[S, A](sas: List[State[S, A]]): State[S, List[A]] =
 
   def modify[S](f: S => S): State[S, Unit] = for {
     s <- get
