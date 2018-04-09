@@ -4,14 +4,14 @@ sealed trait Tree[+A] {
     case Branch(l,r) => (l.size + r.size) + 1
   }
   def maximum: Int = this match {
-    case Leaf(n) => 1
+    case Leaf(v) => 1
     case Branch(l,r) => l.maximum max r.maximum
 
   }
   //ex27
   def depth: Int = this match {
     case Leaf(_) => 0
-    case Branch(l,r) => 1 + (l.depth max r.depth)
+    case Branch(l,r) => (l.depth max r.depth) + 1
   }
   //ex 28
 
