@@ -37,5 +37,30 @@ $ touch build-test.sbt
 libraryDependencies += "org.scalatest" % "scalatest_2.12" % "3.0.5" % "test"
 ```
 
+## Testing under sbt console
+
+```scala
+sbt:<my ID>> console
+[info] Starting scala interpreter...
+Welcome to Scala 2.12.5 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_151).
+Type in expressions for evaluation. Or try :help.
+
+scala> import scalaz.State
+import scalaz.State
+
+scala> val m1 = State { s: String => (s, s.length) }
+m1: scalaz.State[String,Int] = scalaz.IndexedStateT$$anon$12@5568ed31
+
+scala> m1.run("hello")==("hello", 5)
+res0: Boolean = true
+
+scala> def repeat(num: Int): State[String, Unit] = State { s: String => (s * num, ()) }
+repeat: (num: Int)scalaz.State[String,Unit]
+
+scala> repeat(3).run("abc")==("abcabcabc", ())
+res1: Boolean = true
+
+```
+
 
 
