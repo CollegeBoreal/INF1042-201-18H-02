@@ -6,7 +6,7 @@ case class Machine(locked: Boolean, candies: Int, coins: Int)
 
 import State._
 object Bonbonniere {
-<<<<<<< HEAD
+
   // pattern matching for State
   def updateRule: Input => ( Machine => Machine) = (i: Input) => (s: Machine) => (i, s) match {
     case (Turn,Machine(true,_,_)) => s
@@ -23,7 +23,7 @@ object Bonbonniere {
 
   }
 }
-=======
+
 
   // pattern matching for State
 
@@ -36,4 +36,4 @@ object Bonbonniere {
   }
 
 }
->>>>>>> 633adc0ca8c393ea3a383b90b4c46a424f4fa947
+
