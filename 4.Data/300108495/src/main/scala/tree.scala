@@ -4,7 +4,7 @@ sealed trait Tree[+A] {
     case Branch(l,r) => (l.size + r.size) + 1
   }
   def maximum: Int = this match {
-    case Leaf(n) => n
+    case Leaf(v) => v
     case Branch(l,r) => l.maximum max r.maximum
 
   }
