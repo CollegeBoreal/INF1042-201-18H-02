@@ -1,5 +1,6 @@
 # Candy Dispenser
 
+## Create a Scala Script called Candy in src/main/scala
 
 ```scala
 package dispenser
@@ -23,6 +24,7 @@ object Candy {
 }
 ```
 
+## Create a Scala Script called CandySpec in test/main/scala
 
 ```scala
 package dispenser
