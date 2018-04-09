@@ -11,6 +11,7 @@ case class Machine(locked: Boolean, candies: Int, coins: Int)
 
 object Bonbonniere {
 
+
   def updateRule: Input => (Machine => Machine) = (i: Input) => (s: Machine) => (i, s) match {
 
     case (_, Machine( _,0, _)) => s
@@ -20,6 +21,10 @@ object Bonbonniere {
     case (Coin, Machine(true, candy, coin)) => Machine(locked = false, candy, coin + 1)
 
     case (Turn, Machine(false, candy, coin))=> Machine(locked = true, candy -1, coin)
+
+  // pattern matching for State
+  def updateRule: Input => ( Machine => Machine) = (i: Input) => (s: Machine) => (i, s) match {
+    case (Turn,Machine(true,_,_)) => s
 
   }
 
@@ -39,6 +44,12 @@ object Bonbonniere {
 
   def main(args: Array[String]): Unit = {
 
+<<<<<<< HEAD
+=======
+  }
+}
+
+>>>>>>> 4c383818c0ce6f1513e035f3dcfc18cc73cae938
 
 
     assert(simulateMachine(List(Turn)).run(Machine(locked = true, 1, 0))._1==(0, 1))
@@ -49,4 +60,9 @@ object Bonbonniere {
 
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 4c383818c0ce6f1513e035f3dcfc18cc73cae938

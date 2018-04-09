@@ -44,7 +44,7 @@ object List {
     if (n <= 0) xs
     else xs match {
       case Nil => Nil
-      case Con(_, t) => drop(t, n - 1)
+      case Cons(_, t) => drop(t, n - 1)
     }
 
   // Exercice 3.5
