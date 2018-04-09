@@ -17,7 +17,7 @@ $ cd <my ID>
 $ touch build-scalaz.sbt
 ```
 
-2.  Add the scalaz library content
+2.  Add the scalaz library content (i.e. vi)
 
 ```scala
 libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.20"
@@ -31,7 +31,7 @@ libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.20"
 $ touch build-test.sbt
 ```
 
-2.  Add the scalatest library content
+2.  Add the scalatest library content (i.e. vi)
 
 ```scala
 libraryDependencies += "org.scalatest" % "scalatest_2.12" % "3.0.5" % "test"
