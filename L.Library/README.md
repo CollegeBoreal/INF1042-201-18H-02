@@ -1,4 +1,6 @@
+# Library
 
+## Create a new Scala project (with IntelliJ)
 
 build-scalaz.sbt
 
