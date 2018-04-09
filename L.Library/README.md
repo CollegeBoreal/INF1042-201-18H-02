@@ -39,6 +39,8 @@ libraryDependencies += "org.scalatest" % "scalatest_2.12" % "3.0.5" % "test"
 
 ## Testing under sbt console
 
+Reference: https://softwarecorner.wordpress.com/2013/08/29/scalaz-state-monad/
+
 1. run sbt
 
 ```shell
