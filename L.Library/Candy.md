@@ -44,10 +44,10 @@ class CandySpec extends FunSpec {
 
   def simulate(inputs: List[Input]): State[Candy, (Int, Int)] =
     for {
-      _ <- Applicative[({type f[A] = State[Candy,A]})#f].sequence(inputs.map(modify[Candy] _ compose Candy.withRule))
+      _ <- Applicative[({type candyState[A] = State[Candy,A]})#candyState]
+                .sequence(inputs.map(modify[Candy] _ compose Candy.withRule))
       s <- get
     } yield (s.coins, s.candies)
-
 
   describe("When evaluating run") {
     it("should inserting a coin into a locked machine cause it to unlock if there’s any candy left.") {
