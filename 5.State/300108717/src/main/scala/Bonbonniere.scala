@@ -16,6 +16,12 @@ object Bonbonniere {
 
   def updateRule: Input => (Machine => Machine ) = (i: Input) => (s: Machine)=> (i, s) match {
     case (Turn,Machine(true,_,_)) => s
+    //case (Turn,Machine(false,_,_)) => s
+    case ( Coin,Machine,true,1,0) => Machine(locked =false, 1,1)
+    case (Coin,Machine(true,candy,coin)) => Machine(locked = false,candy, coin + 1)
+    case (Coin,Machine(false,candy,coin)) => Machine(locked = true,candy -1, coin)
+    case (_,Machine(_,0,_)) => s
+    case (Turn,Machine(false,candy,coin)) => Machine(locked= true,candy - 1,coin)
   }
 
   //sugarized
@@ -30,8 +36,8 @@ object Bonbonniere {
 
 
     assert(simulateMachine(List(Turn)).run(Machine(locked = true, 1, 0))._1 ==(0,1))
-
-
+    assert(simulateMachine(List(Coin,Turn)).run(Machine(locked = true, 1, 0))._1 == (1,0))
+    assert(simulateMachine(List(Coin,Turn,Coin)).run(Machine(locked = true, 1,0))._1 == (1,0))
   }
 
 
