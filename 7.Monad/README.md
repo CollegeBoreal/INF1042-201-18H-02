@@ -20,9 +20,9 @@
     
         - [Fibonacci](./Fibonacci.md)
         
-        - Counter
+        - [Counter](./Counter.md)
     
-        - Tree
+        - [Tree](./Tree.md)
      
 4. Test your programs 
 
