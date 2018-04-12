@@ -51,5 +51,5 @@ scala> val m1 = State { s: String => (s, s.length) }
 scala> m1.run("hello")
 ```
 
-
+## [BACK](./README.md)
 
