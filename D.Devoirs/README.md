@@ -27,4 +27,8 @@ Les test determineront la comprehension de la matiere
 
 ## Pour le 16 avril 2018
 
+Ce devoir permettra d'estimer la compréhension de l'élève à suivre des instructions
+
+C'est un devoir noté 
+
 [7.Monad](../7.Monad)
