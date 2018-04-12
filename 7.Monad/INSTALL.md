@@ -23,7 +23,7 @@ $ cd MyID  # Change Directory to your ID
 
 ### scalaz
 
-1. Add the scalaz library file . (Note: you can copy and paste the command in your terminal)
+* Add the scalaz library file . (Note: you can copy and paste the command in your terminal)
 
 ```shell
 $ echo "libraryDependencies += \"org.scalaz\" %% \"scalaz-core\" % \"7.2.20\"" > build-scalaz.sbt
