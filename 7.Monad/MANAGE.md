@@ -6,7 +6,7 @@
 
 ## Under `Project View` : (alt-1 on PC, command-1 on Mac)
 
-    * Change the drop down to `Packages` 
+    * Change the drop down to Packages 
 
     * Create a package called `state` under the `root` folder 
     
