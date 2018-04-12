@@ -11,8 +11,8 @@
      
 ## Test
 
-    ```shell
-    $ sbt 
-    sbt> run
-    
-    ```
+```shell
+$ sbt 
+sbt> run
+
+```
