@@ -1,5 +1,5 @@
 ```scala
-package africa.valiha.ttt.state
+package state
 
 sealed trait Tree[+A]
 case class Branch[+A](left: Tree[A], right: Tree[A]) extends Tree[A]
