@@ -18,7 +18,7 @@
     
     * Create THREE programs (i.e. Scala Script) called :
     
-        - Fibonacci
+        - [Fibonacci](./Fibonacci.md)
         
         - Counter
     
