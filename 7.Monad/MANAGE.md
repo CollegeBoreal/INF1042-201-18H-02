@@ -1,8 +1,8 @@
-# IntelliJ
+# In IntelliJ
 
-## Open you project 
+## Open you project (Open Button)
 
-    * by locating the `build.sbt` file
+    * by opening the `build.sbt` file
 
 ## Under the `Package View`, 
 
