@@ -1,3 +1,4 @@
+```scala
 package state
 
 import scalaz.State
@@ -40,3 +41,4 @@ object Fibonacci {
   }
 
 }
+```
