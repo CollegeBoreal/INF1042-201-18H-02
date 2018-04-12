@@ -1,5 +1,5 @@
 ```scala
-package state
+package africa.valiha.ttt.state
 
 sealed trait Tree[+A]
 case class Branch[+A](left: Tree[A], right: Tree[A]) extends Tree[A]
@@ -28,8 +28,10 @@ object Tree {
 
   def main(args: Array[String]): Unit = {
     val tree: Tree[Char] = Branch(Leaf('a'), Branch(Branch(Leaf('b'), Leaf('c')), Leaf('d')))
-    assert(Tree.fromTree(tree).eval(0)==Branch(Leaf((0,'a')),Branch(Branch(Leaf((1,'b')),Leaf((2,'c'))),Leaf((3,'d')))))
-    assert(Tree.fromTree(tree).eval(10)==Branch(Leaf((10,'a')),Branch(Branch(Leaf((11,'b')),Leaf((12,'c'))),Leaf((13,'d')))))
+    assert(Tree.fromTree(tree).eval(0)==
+      Branch(Leaf((0,'a')),Branch(Branch(Leaf((1,'b')),Leaf((2,'c'))),Leaf((3,'d')))))
+    assert(Tree.fromTree(tree).eval(10)==
+      Branch(Leaf((10,'a')),Branch(Branch(Leaf((11,'b')),Leaf((12,'c'))),Leaf((13,'d')))))
   }
 
 }
