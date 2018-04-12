@@ -8,8 +8,8 @@ Note:
    
    Position your prompt at the `7.Monad` directory
 
-```
-cd ~/Developer/INF1042-201-18H-02/7.Monad
+```shell
+$ cd ~/Developer/INF1042-201-18H-02/7.Monad
 ```
 
 * Create your project
@@ -23,35 +23,13 @@ $ cd MyID
 
 ### scalaz
 
-1. Add the scalaz library file
+1. Add the scalaz library file . (Note: you can copy and paste the command in your terminal)
 
 ```shell
-$ touch build-scalaz.sbt
-```
-
-2.  Add the scalaz library content (i.e. vi)
-
-```scala
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.20"
-```
-
-### scalaTest
-
-1. Add the scalatest library file
-
-```shell
-$ touch build-test.sbt
-```
-
-2.  Add the scalatest library content (i.e. vi)
-
-```scala
-libraryDependencies += "org.scalatest" % "scalatest_2.12" % "3.0.5" % "test"
+$ echo "libraryDependencies += \"org.scalaz\" %% \"scalaz-core\" % \"7.2.20\"" > build-scalaz.sbt
 ```
 
 ## Testing under sbt console
-
-Reference: https://softwarecorner.wordpress.com/2013/08/29/scalaz-state-monad/
 
 1. run sbt
 
@@ -62,7 +40,7 @@ $ sbt
 2. test
 
 ```scala
-sbt:<my ID>> console
+sbt:MyID> console
 ```
 
 3. Execute
@@ -71,8 +49,6 @@ sbt:<my ID>> console
 scala> import scalaz.State
 scala> val m1 = State { s: String => (s, s.length) }
 scala> m1.run("hello")
-scala> def repeat(num: Int): State[String, Unit] = State { s: String => (s * num, ()) }
-scala> repeat(3).run("abc")
 ```
 
 
