@@ -6,7 +6,7 @@ Note:
    
    Replace `MyID` with your student ID
    
-   Position your prompt at the `7.Monad` directory
+* Position your prompt at the `7.Monad` directory
 
 ```shell
 $ cd ~/Developer/INF1042-201-18H-02/7.Monad
@@ -16,7 +16,7 @@ $ cd ~/Developer/INF1042-201-18H-02/7.Monad
 
 ```shell
 $ sbt new scala/scala-seed.g8 --name=MyID
-$ cd MyID
+$ cd MyID  # Change Directory to your ID
 ```
 
 ## Add the libraries
