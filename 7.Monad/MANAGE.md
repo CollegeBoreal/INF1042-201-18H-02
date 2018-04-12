@@ -4,9 +4,11 @@
 
     * by opening the `build.sbt` file
 
-## Under the `Package View`, 
+## Under `Project View` (alt-1 on PC, command-1 on Mac), change the drop down to `Packages` 
 
-    * Create a package called `state`
+    * Create a package called `state` under the `root` folder 
+    
+        put the state package under `../src/main/scala`
     
 ## Under the `newly` created `state` package 
     
