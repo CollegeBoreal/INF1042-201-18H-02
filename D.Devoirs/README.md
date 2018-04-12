@@ -24,3 +24,7 @@ L'exercice 3.25 a ete fait en classe : Programme [Tree.scala](../4.Data/30009895
 Le nombre de tests (assert) determinera la note.
 Les test determineront la comprehension de la matiere
 ```
+
+## Pour le 16 avril 2018
+
+[7.Monad](../7.Monad)
