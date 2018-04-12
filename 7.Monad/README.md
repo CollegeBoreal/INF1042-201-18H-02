@@ -9,7 +9,7 @@
 [2. MANAGE](./MANAGE.md) . by following the instructions.
 
      
-4. Test your programs 
+## Test
 
     ```shell
     $ sbt 
