@@ -3,9 +3,10 @@
 ## Create a new Scala project (with Git Bash [Windows] or Terminal [Mac])
 
 Note: 
+   
    Replace MyID with your student ID
    
-   Position your prompt to the 7.Monad directory
+   Position your prompt at the `7.Monad` directory
 
 ```
 cd ~/Developer/INF1042-201-18H-02/7.Monad
