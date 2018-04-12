@@ -10,7 +10,7 @@
 
 * Create a package called `state` under the `root` folder 
 
-  put the state package under `../src/main/scala`
+  put the `state` package under `../src/main/scala`
     
 ## Under the `newly` created `state` package 
     
