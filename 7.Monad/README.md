@@ -2,9 +2,11 @@
 
 ## Create a new Scala project (with Git Bash [Windows] or Terminal [Mac])
 
+Note: Replace MyID with your student ID
+
 ```shell
-$ sbt new scala/scala-seed.g8 --name=<my ID>
-$ cd <my ID>
+$ sbt new scala/scala-seed.g8 --name=`MyID`
+$ cd `MyID`
 ```
 
 ## Add the libraries
