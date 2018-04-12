@@ -2,7 +2,15 @@
 
 ## Create a new Scala project (with Git Bash [Windows] or Terminal [Mac])
 
-Note: Replace MyID with your student ID
+Note: 
+   Replace MyID with your student ID
+   Position your prompt to the 7.Monad directory
+
+```
+cd ~/Developer/INF1042-201-18H-02/7.Monad
+```
+
+* Create your project
 
 ```shell
 $ sbt new scala/scala-seed.g8 --name=MyID
