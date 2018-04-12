@@ -6,23 +6,7 @@
 
 ## Manage your project in IntelliJ
 
-1. Open you project 
 
-    * by locating the `build.sbt` file
-
-2. Under the `Package View`, 
-
-    * Create a package called `state`
-    
-3. Under the `newly` created `state` package 
-    
-    * Create THREE programs (i.e. Scala Script) called :
-    
-        - [Fibonacci](./Fibonacci.md)
-        
-        - [Counter](./Counter.md)
-    
-        - [Tree](./Tree.md)
      
 4. Test your programs 
 
