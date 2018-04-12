@@ -4,7 +4,9 @@
 
     * by opening the `build.sbt` file
 
-## Under `Project View` (alt-1 on PC, command-1 on Mac), change the drop down to `Packages` 
+## Under `Project View` : (alt-1 on PC, command-1 on Mac)
+
+    * Change the drop down to `Packages` 
 
     * Create a package called `state` under the `root` folder 
     
