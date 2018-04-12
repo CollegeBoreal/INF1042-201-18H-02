@@ -5,8 +5,8 @@
 Note: Replace MyID with your student ID
 
 ```shell
-$ sbt new scala/scala-seed.g8 --name=`MyID`
-$ cd `MyID`
+$ sbt new scala/scala-seed.g8 --name=MyID
+$ cd MyID
 ```
 
 ## Add the libraries
