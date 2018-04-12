@@ -12,7 +12,7 @@ $ cd ~/Developer/INF1042-201-18H-02/7.Monad
 
 Note: 
    
-   Replace `MyID` with your student ID
+   Replace `MyID` with your student ID, no space between `--name=`
 
 ```shell
 $ sbt new scala/scala-seed.g8 --name=MyID
