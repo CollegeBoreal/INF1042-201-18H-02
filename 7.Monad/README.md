@@ -14,5 +14,15 @@
 ```shell
 $ sbt 
 sbt> run
-
 ```
+
+     Multiple main classes detected, select one to run:
+
+      [1] example.Hello
+      [2] state.Counter
+      [3] state.Fibonacci
+      [4] state.Tree
+     [info] Packaging /Users/...(cut)..._2.12-0.1.0-SNAPSHOT.jar ...
+     [info] Done packaging.
+
+     Enter number: 
