@@ -45,11 +45,14 @@ sbt:MyID> console
 
 3. Execute
 
-```
-scala> import scalaz.State
-scala> val m1 = State { s: String => (s, s.length) }
-scala> m1.run("hello")
-```
+```scala> import scalaz.State```
+import scalaz.State
+
+```scala> val m1 = State { s: String => (s, s.length) }```
+m1: scalaz.State[String,Int] = scalaz.IndexedStateT$$anon$12@237e4742
+
+```scala> m1.run("hello")```
+res0: scalaz.Id.Id[(String, Int)] = (hello,5)
 
 ## [BACK](./README.md)
 
