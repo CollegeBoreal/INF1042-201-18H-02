@@ -5,7 +5,7 @@ import scalaz.State
 object Counter {
 
   // A simple counter using the state monad. The counter counts down by one each
-  // iteration, and when it hits zero it stops. The value (Option[Int])
+  // iteration, and when it hits zero it stops.The value (Option[Int])
   // indicates if we should continue or stop processing.
   def next: State[Int, Option[Int]] =
     State[Int, Option[Int]] {
