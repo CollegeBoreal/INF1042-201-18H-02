@@ -8,13 +8,13 @@ import scalaz.state, state.{get,modify}
 
 object Tree {
 
-  def memoize[A](a: A): state[Int, Tree[(Int, A)]] =
+  def memoize[A](a: A): State[Int, Tree[(Int, A)]] =
     for {
-      state <- get[Int]
+      State <- get[Int]
       _ <- modify[Int](s => s + 1)
-    } yield Leaf(state, a)
+    } yield Leaf(State, a)
 
-  def fromTree[A](tree: Tree[A]): state[Int, Tree[(Int, A)]] = {
+  def fromTree[A](tree: Tree[A]): State[Int, Tree[(Int, A)]] = {
     tree match {
       case Leaf(a) => memoize[A](a)
       case Branch(left, right) =>
