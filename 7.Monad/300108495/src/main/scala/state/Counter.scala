@@ -1,14 +1,14 @@
 package state
 
-import scalaz.State
+import scalaz.state
 
 object Counter {
 
   // A simple counter using the state monad. The counter counts down by one each
   // iteration, and when it hits zero it stops. The value (Option[Int])
   // indicates if we should continue or stop processing.
-  def next: State[Int, Option[Int]] =
-    State[Int, Option[Int]] {
+  def next: state[Int, Option[Int]] =
+    state[Int, Option[Int]] {
       case 0 => (0, None)
       case x => (x - 1, Some(x))
     }
@@ -20,8 +20,8 @@ object Counter {
   }
 
   // Loop until the condition is false
-  def countDown: State[Int, Boolean] = {
-    def go(choice: State[Int, Boolean]): State[Int, Boolean] = choice.flatMap {
+  def countDown: state[Int, Boolean] = {
+    def go(choice: state[Int, Boolean]): state[Int, Boolean] = choice.flatMap {
       case false => choice
       case true => go(next map check)
     }
