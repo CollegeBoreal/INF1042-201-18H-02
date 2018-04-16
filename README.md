@@ -2,7 +2,7 @@
 
 Introduction a la programmation
 
-## [Devoirs](Devoirs)
+## [Devoirs](D.Devoirs#pour-le-16-avril-2018)
 
 ## Elements de Performance
 
@@ -47,8 +47,11 @@ Introduction a la programmation
 
 # Glossaire:
 
-| Principes                      | Lien                                               |
-|--------------------------------|----------------------------------------------------|
-| Lambda Calculus                |https://en.wikipedia.org/wiki/Lambda_calculus       |
-| Fonction d'ordre supérieur     |https://en.wikipedia.org/wiki/Higher-order_function |
-| Composition de fonctions       |https://en.wikipedia.org/wiki/Function_composition  |
+| Principes                       | Lien                                               |
+|---------------------------------|----------------------------------------------------|
+| Lambda Calculus                 |https://en.wikipedia.org/wiki/Lambda_calculus       |
+| Fonction d'ordre supérieur      |https://en.wikipedia.org/wiki/Higher-order_function |
+| Composition de fonctions        |https://en.wikipedia.org/wiki/Function_composition  |
+| What is Category Theory?        |https://www.youtube.com/watch?v=jBkO1eerU8A&list=PL4FD0wu2mjWOtmhJsiVrCpzOAk42uhdz8|
+| Intro to Category Theory (Video)|https://www.youtube.com/watch?v=JH_Ou17_zyU         |
+
