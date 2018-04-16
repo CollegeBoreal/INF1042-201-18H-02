@@ -52,3 +52,5 @@ Introduction a la programmation
 | Lambda Calculus                |https://en.wikipedia.org/wiki/Lambda_calculus       |
 | Fonction d'ordre supérieur     |https://en.wikipedia.org/wiki/Higher-order_function |
 | Composition de fonctions       |https://en.wikipedia.org/wiki/Function_composition  |
+| Category Theory (Video)        |https://www.youtube.com/watch?v=JH_Ou17_zyU         |
+
