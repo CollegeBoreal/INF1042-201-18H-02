@@ -12,7 +12,7 @@ class Swing(width: Int, height: Int, keyListener: ActorRef) extends Renderer {
   private val canvas = new Canvas
 
   swing {
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+
     frame.addKeyListener(Keyboard)
     frame.add(canvas)
     frame.pack()

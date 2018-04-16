@@ -10,7 +10,7 @@ object Fibonacci {
 
   type Memo = Map[Int, BigInt]
 
-  def memoize(n: Int): Option[BigInt] => State[Memo, BigInt] = {
+  def memoize(n: Int): Option[BigInt] => state[Memo, BigInt] = {
     case Some(value) =>
       state[Memo, BigInt](value) // store to state
     case None =>
@@ -22,7 +22,7 @@ object Fibonacci {
       } yield result
   }
 
-  def fib: Int => State[Memo, BigInt] = {
+  def fib: Int => state[Memo, BigInt] = {
     case 0 => memoize(0)(Some(0))
     case 1 => memoize(0)(Some(1))
     case n =>
