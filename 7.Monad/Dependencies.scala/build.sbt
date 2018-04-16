@@ -1,4 +1,4 @@
-name := "Devoirs"
+name := "Dependencies.scala"
 
 version := "0.1"
 

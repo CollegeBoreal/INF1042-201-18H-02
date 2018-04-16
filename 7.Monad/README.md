@@ -16,6 +16,8 @@ $ sbt
 sbt> run
 ```
 
+The below result should appear
+
      (cut)
      Multiple main classes detected, select one to run:
 

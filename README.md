@@ -21,7 +21,7 @@ Introduction a la programmation
 |11|26-03-18|                      |                                         |                           |
 |12|02-04-18| [5.State](5.State)   | Chapitre 6                              | Functional State          |
 |13|09-04-18|                      |                                         |                           |
-|14|16-04-18|                      |                                         |                           |
+|14|16-04-18| [7.Monad](7.Monad)   | Chapitre 11                             | Functional State Monad    |
 |15|23-04-18| Fin des cours        |                                         |                           |
 
 
@@ -47,8 +47,11 @@ Introduction a la programmation
 
 # Glossaire:
 
-| Principes                      | Lien                                               |
-|--------------------------------|----------------------------------------------------|
-| Lambda Calculus                |https://en.wikipedia.org/wiki/Lambda_calculus       |
-| Fonction d'ordre supérieur     |https://en.wikipedia.org/wiki/Higher-order_function |
-| Composition de fonctions       |https://en.wikipedia.org/wiki/Function_composition  |
+| Principes                       | Lien                                               |
+|---------------------------------|----------------------------------------------------|
+| Lambda Calculus                 |https://en.wikipedia.org/wiki/Lambda_calculus       |
+| Fonction d'ordre supérieur      |https://en.wikipedia.org/wiki/Higher-order_function |
+| Composition de fonctions        |https://en.wikipedia.org/wiki/Function_composition  |
+| What is Category Theory?        |https://www.youtube.com/watch?v=jBkO1eerU8A&list=PL4FD0wu2mjWOtmhJsiVrCpzOAk42uhdz8|
+| Intro to Category Theory (Video)|https://www.youtube.com/watch?v=JH_Ou17_zyU         |
+
