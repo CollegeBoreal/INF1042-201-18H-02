@@ -1,7 +1,7 @@
 package state
 
 import scalaz.State
-import scalaz.State.{state, gets, modify}
+import scalaz.State.{State, gets, modify}
 
 /*
 https://gist.github.com/mpilquist/5025874
@@ -12,7 +12,7 @@ object Fibonacci {
 
   def memoize(n: Int): Option[BigInt] => State[Memo, BigInt] = {
     case Some(value) =>
-      state[Memo, BigInt](value) // store to state
+      State[Memo, BigInt](value) // store to state
     case None =>
       for {
         a <- fib(n - 2)
