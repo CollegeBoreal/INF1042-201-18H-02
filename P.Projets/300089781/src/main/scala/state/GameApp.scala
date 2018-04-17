@@ -28,9 +28,9 @@ class GameApp(in: InputParser) { self:GameContext =>
   def start(): Unit = {
     println("Commencer la partie")
     in.chooseMode() match {
-      case ComputerVsComputer =>
+      case OrdinateurVsOrdinateur =>
         printMatch(randomPlayer("Ordi 1"), randomPlayer("Ordi 2"))
-      case UserVsComputer =>
+      case UtilisateurVsOrdinateur =>
         val name = in.chooseName()
         val move = in.chooseMove(moves)
         printMatch(Player(name, move), randomPlayer("Ordi"))
@@ -53,8 +53,8 @@ class InputParser(in: Reader) {
 
   def chooseMode(): GameMode = Console.withIn(in) {
     def chooseModeRec(): GameMode = StdIn.readLine(modeSelectionPrompt) match {
-      case "1" => UserVsComputer
-      case "2" => ComputerVsComputer
+      case "1" => UtilisateurVsOrdinateur
+      case "2" => OrdinateurVsOrdinateur
       case _ =>
         println("Erreur: S.v.p choisir 1 ou 2")
         chooseModeRec()
@@ -97,11 +97,13 @@ class InputParser(in: Reader) {
   }
 }
 
+
+
 trait GameMode
 
-case object UserVsComputer extends GameMode
+case object UtilisateurVsOrdinateur extends GameMode
 
-case object ComputerVsComputer extends GameMode
+case object OrdinateurVsOrdinateur extends GameMode
 
 trait Action
 

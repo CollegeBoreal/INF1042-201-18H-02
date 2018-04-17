@@ -13,20 +13,15 @@ trait GameContext extends Moves {
 
 trait RockPaperScissors extends GameContext {
   override protected val beats: Map[Move, List[Move]] =
-    Map(Rock -> List(Scissors), Scissors -> List(Paper), Paper -> List(Rock))
+    Map(Roche -> List(Ciseaux), Ciseaux -> List(Papier), Papier -> List(Roche))
 }
 
-trait RockPaperScissorsSpockLizard extends GameContext {
+trait RochePapierCiseaux extends GameContext {
 
-  case object Spock extends Move
-
-  case object Lizard extends Move
-
-  override val moves = List(Rock, Paper, Scissors, Spock, Lizard)
+  override val moves = List(Roche, Papier, Ciseaux)
 
   override protected val beats: Map[Move, List[Move]] =
-    Map(Rock -> List(Scissors, Lizard), Scissors -> List(Paper, Lizard), Paper -> List(Rock, Spock),
-      Spock -> List(Scissors, Rock), Lizard -> List(Paper, Spock))
+    Map(Roche -> List(Ciseaux), Ciseaux -> List(Papier, Roche), Papier -> List(Roche, Ciseaux))
 
 }
 
