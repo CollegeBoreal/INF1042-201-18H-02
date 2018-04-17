@@ -1,6 +1,6 @@
 package state
 import scalaz.State
-import Scalaz._
+import scalaz.Scalaz._
 
 object StateExercise extends App{
   trait Colour
