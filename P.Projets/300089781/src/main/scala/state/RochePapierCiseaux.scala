@@ -5,14 +5,12 @@ import scalaz.State
 
 object RochePapierCiseaux {
 
-
   def play(beats: Map[Symbol, Set[Symbol]], played: scala.collection.Map[Symbol, Int]) {
     val t = readLine(s"""Mon jeu (${beats.keys mkString ", "}): """) match {
       case null => println; return
       case "" => return
       case s => Symbol(s)
     }
-
 
     beats get t match {
       case Some(losers) =>
@@ -31,7 +29,7 @@ object RochePapierCiseaux {
           case c if beats(c) contains t => println("Vous perdez")
           case _ => println("Match nul")
         }
-      case x => println("  Unknown weapon, try again.")
+
     }
     play(beats, played get t match {
       case None => played
@@ -48,14 +46,13 @@ object RochePapierCiseaux {
     'papier -> Set('roche, 'ciseaux),
     'ciseaux -> Set('papier, 'roche)
   ))
-
+}
   object Counter {
-
     def next: State[Int, Option[Int]] =
-    State[Int, Option[Int]] {
-      case 5 => (5, None)
-      case x => (x - 1, Some(x))
-    }
+      State[Int, Option[Int]] {
+        case 5 => (5, None)
+        case x => (x - 1, Some(x))
+      }
     def check: Option[Int] => Boolean = {
       case None    => false
       case Some(x) => /*println(s"$x...");*/ true
@@ -67,10 +64,12 @@ object RochePapierCiseaux {
       }
       go(next map check)
     }
+
     def main(args: Array[String]): Unit = {
-
+      assert(countDown.run(2)==(0,false))
+      assert(countDown.exec(5)==0)
+      assert(!countDown.eval(4))
     }
-
   }
 
-}
+
