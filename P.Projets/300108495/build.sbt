@@ -1,7 +1,12 @@
-name := "300108495"
+import Dependencies._
 
-version := "0.1"
-
-scalaVersion := "2.12.5"
-
-scalacOptions := Seq("-unchecked", "-deprecation", "-feature", "-encoding", "utf8")
+lazy val root = (project in file(".")).
+  settings(
+    inThisBuild(List(
+      organization := "com.example",
+      scalaVersion := "2.12.4",
+      version      := "0.1.0-SNAPSHOT"
+    )),
+    name := "300108495",
+    libraryDependencies += scalaTest % Test
+  )
