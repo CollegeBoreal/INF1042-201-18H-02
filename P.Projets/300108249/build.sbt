@@ -1,5 +1,4 @@
 import Dependencies._
-
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
@@ -7,6 +6,6 @@ lazy val root = (project in file(".")).
       scalaVersion := "2.12.4",
       version      := "0.1.0-SNAPSHOT"
     )),
-    name := "MyID",
+    name := "300108249",
     libraryDependencies += scalaTest % Test
   )
