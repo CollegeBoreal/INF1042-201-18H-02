@@ -1,10 +1,9 @@
 package state
+import scala.collection.Map
+import scalaz.State
 
 
 class MinMaxStrategyFinder[S <: State[S]] extends BestMoveFinder[S] {
-
-
-
   // Here, and in other methods
 
   // parameter s - is a current state of the game
@@ -34,45 +33,25 @@ class MinMaxStrategyFinder[S <: State[S]] extends BestMoveFinder[S] {
                      worstOutcome: Int, s: S): Outcome =
 
     if(s.isGameOver) Outcome(outcomeOfGame(s), s)
-
     else s.generateStates
-
       .foldLeft(Outcome(worstOutcome, s)){(acc, state) => {
-
         val outcome = opponentMove(state).cost
-
         if(strategy(outcome, acc.cost)) Outcome(outcome, state)
-
         else acc}}
-
-
-
   def outcomeOfGame(s: S): Int =
-
     if (s.playerOneWin) PLAYER_ONE_WIN
-
     else if(s.playerTwoWin) PLAYER_ONE_LOOSE
-
     else DRAW
-
-
-
   case class Outcome(cost: Int, state: S)
-
-
-
   val PLAYER_ONE_WIN   =  1 // the outcome, when first player wins
-
   val PLAYER_ONE_LOOSE = -1 // the outcome, when second player wins
-
   val DRAW             =  0 // the outcome, when nobody wins
-
-
-
   type Criteria = (Int, Int) => Boolean
-
   def maximize: Criteria = (a, b) => a >= b
-
   def minimize: Criteria = (a, b) => a <= b
 
+
+  def main(args: Array[String]): Unit = {
+  }
 }
+
