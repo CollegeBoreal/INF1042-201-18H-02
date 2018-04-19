@@ -1,4 +1,4 @@
-name := "Monad"
+name := "state"
 
 version := "0.1"
 
