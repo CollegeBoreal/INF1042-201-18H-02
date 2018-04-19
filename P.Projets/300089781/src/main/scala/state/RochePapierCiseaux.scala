@@ -1,6 +1,6 @@
 package state
 import scala.util.Random
-import java.io.{Reader, InputStreamReader}
+import java.io.{Reader}
 import scala.io.StdIn
 
 object RochePapierCiseaux {
@@ -99,7 +99,7 @@ object RochePapierCiseaux {
     }
   }
 
-  trait Move
+  sealed trait Move
 
   case object Rock extends Move
 
@@ -107,7 +107,7 @@ object RochePapierCiseaux {
 
   case object Scissors extends Move
 
-  trait Moves {
+  sealed trait Moves {
 
     protected val moves = List(Rock, Paper, Scissors)
 
@@ -119,19 +119,19 @@ object RochePapierCiseaux {
 
   }
 
-  trait GameMode
+  sealed trait GameMode
 
   case object UserVsComputer extends GameMode
 
   case object ComputerVsComputer extends GameMode
 
-  trait Action
+  sealed trait Action
 
   case object Continue extends Action
 
   case object Exit extends Action
 
-  trait GameContext extends Moves {
+  sealed trait GameContext extends Moves {
 
     def play(p1: Player, p2: Player): GameResult = p1.move == p2.move match {
       case true => Tie
@@ -142,12 +142,12 @@ object RochePapierCiseaux {
     def randomPlayer(name: String) = Player(name, randomMove)
   }
 
-  trait RockPaperScissors extends GameContext {
+  sealed trait RockPaperScissors extends GameContext {
     override protected val beats: Map[Move, List[Move]] =
       Map(Rock -> List(Scissors), Scissors -> List(Paper), Paper -> List(Rock))
   }
 
-  trait RockPaperScissorsSpockLizard extends GameContext {
+  sealed trait RockPaperScissorsSpockLizard extends GameContext {
 
     case object Spock extends Move
 
@@ -168,6 +168,7 @@ object RochePapierCiseaux {
   case class Win(player: Player) extends GameResult
 
   def main(args: Array[String]): Unit = {
+assert(Moves(List(Rock)).run)
 
   }
 }
