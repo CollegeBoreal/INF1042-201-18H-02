@@ -26,7 +26,7 @@ class MinMaxStrategyFinder[S <: State[S]] extends BestMoveFinder[S] {
         val outcome = opponentMove(state).cost
         if(strategy(outcome, acc.cost)) Outcome(outcome, state)
         else acc}}
-  
+
   def outcomeOfGame(s: S): Int =
     if (s.playerOneWin) PLAYER_ONE_WIN
     else if(s.playerTwoWin) PLAYER_ONE_LOOSE
