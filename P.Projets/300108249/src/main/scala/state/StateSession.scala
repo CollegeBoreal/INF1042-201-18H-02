@@ -1,3 +1,4 @@
+package state
 
 import scalaz._
 import scalaz.State._
