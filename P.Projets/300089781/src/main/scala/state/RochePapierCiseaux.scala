@@ -2,19 +2,19 @@ package state
 import scala.util.Random
 import java.io.{Reader}
 import scala.io.StdIn
-
+/*
+https://github.com/nicocavallo/rockpaperscissors-scala/tree/master/src/main/scala/challenge
+*/
 object RochePapierCiseaux {
 
   case class Player(name: String, move: Move) {
     override def toString = name
   }
-
   class GameApp(in: InputParser) {
     self: GameContext =>
-
     private def printResult(result: GameResult): Unit = result match {
-      case Win(player) => println(s"The winner is '$player'")
-      case Tie => println("It was a Tie")
+      case Win(player) => println(s"Le gagnant est '$player'")
+      case Tie => println("C'est un match nul")
     }
 
     private def printMatch(p1: Player, p2: Player): Unit = {
@@ -24,29 +24,28 @@ object RochePapierCiseaux {
     }
 
     def start(): Unit = {
-      println("Starting a new Game")
+      println("Commencer une nouvelle partie")
       in.chooseMode() match {
         case ComputerVsComputer =>
-          printMatch(randomPlayer("Computer 1"), randomPlayer("Computer 2"))
+          printMatch(randomPlayer("Ordinateur 1"), randomPlayer("Ordinateur 2"))
         case UserVsComputer =>
           val name = in.chooseName()
           val move = in.chooseMove(moves)
-          printMatch(Player(name, move), randomPlayer("Computer"))
+          printMatch(Player(name, move), randomPlayer("Ordinateur"))
       }
       in.wantToContinue() match {
         case Continue => start()
-        case Exit => println("Thank you for playing")
+        case Exit => println("Merci d'avoir joué!")
       }
     }
-
   }
 
   class InputParser(in: Reader) {
     val modeSelectionPrompt =
       """
-        |Please choose a mode:
-        |1.  Human vs Computer
-        |2.  Computer vs Computer
+        |S.v.p choisir un mode:
+        |1.  Humain vs Ordinateur
+        |2.  Ordinateur vs Ordinateur
       """.stripMargin
 
     def chooseMode(): GameMode = Console.withIn(in) {
@@ -54,31 +53,26 @@ object RochePapierCiseaux {
         case "1" => UserVsComputer
         case "2" => ComputerVsComputer
         case _ =>
-          println("Error: Please choose 1 or 2")
+          println("Erreur: S.v.p choisir 1 ou 2")
           chooseModeRec()
       }
-
       chooseModeRec()
     }
-
     def wantToContinue(): Action = Console.withIn(in) {
-      def wantToContinueRec(): Action = StdIn.readLine("Do you want to continue?(Y/N) ").toUpperCase match {
-        case "Y" => Continue
+      def wantToContinueRec(): Action = StdIn.readLine("Voulez-vous continuer?(O/N) ").toUpperCase match {
+        case "O" => Continue
         case "N" => Exit
         case _ =>
-          println("Error: please type Y or N")
+          println("Erreur: S.v.p choisir O ou N")
           wantToContinueRec()
       }
-
       wantToContinueRec()
     }
-
     def chooseName(): String = Console.withIn(in) {
-      def chooseNameRec(): String = StdIn.readLine("Please, choose a name: ") match {
+      def chooseNameRec(): String = StdIn.readLine("S.v.p, choisir un nom: ") match {
         case "" => chooseNameRec()
         case name => name
       }
-
       chooseNameRec()
     }
 
@@ -86,89 +80,60 @@ object RochePapierCiseaux {
       val movesToString = moves.zipWithIndex.map {
         case (m, p) => s"${p + 1}. $m"
       } mkString "\n"
-      val moveSelectionPrompt = s"Please select a move:\n$movesToString\n"
+      val moveSelectionPrompt = s"S.v.p, choisir un mouvement:\n$movesToString\n"
 
       def chooseMoveRec(): Move = StdIn.readLine(moveSelectionPrompt) match {
         case n if n.forall(_.isDigit) && n.toInt > 0 && n.toInt <= moves.size => moves(n.toInt - 1)
         case _ =>
-          println("Error!")
+          println("Erreur!")
           chooseMoveRec()
       }
-
       chooseMoveRec()
     }
   }
 
   sealed trait Move
-
-  case object Rock extends Move
-
-  case object Paper extends Move
-
-  case object Scissors extends Move
+  case object Roche extends Move
+  case object Papier extends Move
+  case object Ciseaux extends Move
 
   sealed trait Moves {
 
-    protected val moves = List(Rock, Paper, Scissors)
-
+    protected val moves = List(Roche, Papier, Ciseaux)
     protected val beats: Map[Move, List[Move]]
-
     protected def randomMove: Move = moves(Random.nextInt(moves.size))
-
     protected def canBeat(m1: Move, m2: Move) = beats.get(m1).exists(_.contains(m2))
-
   }
 
   sealed trait GameMode
-
   case object UserVsComputer extends GameMode
-
   case object ComputerVsComputer extends GameMode
 
   sealed trait Action
-
   case object Continue extends Action
-
   case object Exit extends Action
 
   sealed trait GameContext extends Moves {
-
     def play(p1: Player, p2: Player): GameResult = p1.move == p2.move match {
       case true => Tie
       case _ if canBeat(p1.move, p2.move) => Win(p1)
       case _ => Win(p2)
     }
-
     def randomPlayer(name: String) = Player(name, randomMove)
   }
 
   sealed trait RockPaperScissors extends GameContext {
     override protected val beats: Map[Move, List[Move]] =
-      Map(Rock -> List(Scissors), Scissors -> List(Paper), Paper -> List(Rock))
-  }
-
-  sealed trait RockPaperScissorsSpockLizard extends GameContext {
-
-    case object Spock extends Move
-
-    case object Lizard extends Move
-
-    override val moves = List(Rock, Paper, Scissors, Spock, Lizard)
-
-    override protected val beats: Map[Move, List[Move]] =
-      Map(Rock -> List(Scissors, Lizard), Scissors -> List(Paper, Lizard), Paper -> List(Rock, Spock),
-        Spock -> List(Scissors, Rock), Lizard -> List(Paper, Spock))
-
+      Map(Roche -> List(Ciseaux), Ciseaux -> List(Papier), Papier -> List(Roche))
   }
 
   sealed trait GameResult
-
   case object Tie extends GameResult
-
   case class Win(player: Player) extends GameResult
 
   def main(args: Array[String]): Unit = {
-assert(Moves(List(Rock)).run)
+println(Map(Roche(List(Ciseaux,Papier))))
+
 
   }
 }
