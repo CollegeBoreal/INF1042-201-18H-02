@@ -2,7 +2,7 @@ package state
 import scalaz.State
 import scalaz.Scalaz._
 
-object StateExercise extends App{
+object StateExercise {
   trait Colour
   object Red extends Colour { override def toString = "Red"}
   object Green extends Colour { override def toString = "Green"}
@@ -34,7 +34,12 @@ object StateExercise extends App{
   ) yield selection
 
   val full: Bag = Map(Red -> 30, Green -> 20, Blue -> 10)
-  val (remaining, selected) = draw(5)(full)
-  println(" Selected: "+selected)
-  println("Remaining: "+remaining)
+  val (remaining, selected) = draw(10)(full)
+
+  def main(args: Array[String]): Unit = {
+    assert(true)
+    println(" Selected: "+selected)
+    println("Remaining: "+remaining)
+
+  }
 }
