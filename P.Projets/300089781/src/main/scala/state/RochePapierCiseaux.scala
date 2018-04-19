@@ -1,190 +1,173 @@
 package state
-
 import scala.util.Random
-import scala.collection.immutable.SortedMap
+import java.io.{Reader, InputStreamReader}
 import scala.io.StdIn
-import scala.util.Try
-import scalaz.State
-
-sealed trait GameResult
-  case object Player1Wins extends GameResult{
-    override def toString: String = "Player 1 wins the game!"
-  }
-
-  case object Player2Wins extends GameResult{
-    override def toString: String = "Player 2 wins the game!"
-  }
-
-
-  case object GameTied extends GameResult{
-    override def toString: String = "The game is tied!"
-  }
-
 
 object RochePapierCiseaux {
-  def play(player1Gesture: Gesture, player2Gesture: Gesture): GameResult =
-    player1Gesture.winsAgainst(player2Gesture) match {
-      case _: Wins.type => Player1Wins
-      case _: Loses.type => Player2Wins
-      case _: GestureTied.type => GameTied
+
+  case class Player(name: String, move: Move) {
+    override def toString = name
+  }
+
+  class GameApp(in: InputParser) {
+    self: GameContext =>
+
+    private def printResult(result: GameResult): Unit = result match {
+      case Win(player) => println(s"The winner is '$player'")
+      case Tie => println("It was a Tie")
     }
-}
 
-case class GameRunner(computerAiGestureChooser: ComputerAiGestureChooser) {
-  def playComputerVsComputer(): (GameResult, Gesture, Gesture) = {
-    val player1Gesture = computerAiGestureChooser.nextGesture()
-    val player2Gesture = computerAiGestureChooser.nextGesture()
-
-    (RochePapierCiseaux.play(player1Gesture, player2Gesture), player1Gesture, player2Gesture)
-  }
-
-  def playPlayerVsComputer(player1Gesture: Gesture): (GameResult, Gesture, Gesture) = {
-    val player2Gesture = computerAiGestureChooser.nextGesture()
-    (RochePapierCiseaux.play(player1Gesture, player2Gesture), player1Gesture, player2Gesture)
-
-  }
-}
-
-case class ComputerAiGestureChooser(random: Random) {
-  def nextGesture(): Gesture = random.shuffle(Gesture.values).head
-}
-case object Gesture {
-  val values: List[Gesture] = List(Rock, Paper, Scissors)
-
-  lazy val numberToGestureName: SortedMap[Int, String] = {
-    val elements = values
-      .zipWithIndex
-      .map { case (gesture, index) => (index + 1, gesture.toString) }
-      .sortBy(_._1)
-
-    SortedMap(elements: _*)
-  }
-
-  def findByNumber(number: Int): Gesture = values(number - 1)
-}
-
-sealed trait Gesture {
-  def winsAgainst(opponentGesture: Gesture): GestureVsGestureResult
-}
-
-case object Rock extends Gesture {
-  def winsAgainst(opponentGesture: Gesture): GestureVsGestureResult = opponentGesture match {
-    case _: Rock.type => GestureTied
-    case _: Scissors.type => Wins
-    case _: Paper.type => Loses
-  }
-}
-
-case object Paper extends Gesture {
-  def winsAgainst(opponentGesture: Gesture): GestureVsGestureResult = opponentGesture match {
-    case _: Rock.type => Wins
-    case _: Scissors.type => Loses
-    case _: Paper.type => GestureTied
-  }
-}
-
-case object Scissors extends Gesture {
-  def winsAgainst(opponentGesture: Gesture): GestureVsGestureResult = opponentGesture match {
-    case _: Rock.type => Loses
-    case _: Scissors.type => GestureTied
-    case _: Paper.type => Wins
-  }
-}
-
-sealed trait GestureVsGestureResult
-case object Wins extends GestureVsGestureResult
-case object Loses extends GestureVsGestureResult
-case object GestureTied extends GestureVsGestureResult
-case class UI(gameRunner: GameRunner) {
-
-  def play(): Unit = {
-    println("\nWelcome to RockPaperScissors!")
-    playTwice()
-  }
-
-  def playTwice(): Unit = {
-    val chooseModeMsg = """
-                          |Please choose the game mode you want to play:
-                          |1) Player Vs Computer
-                          |2) Computer Vs Computer
-                          |3) Exit
-                          |>""".stripMargin
-
-    retryUntilValidValue(letPlayerChooseIntValueWithMsg(chooseModeMsg), 1, 2, 3) match {
-      case Some(gameMode) if gameMode == 1 =>
-        playerVsComputer()
-        playTwice()
-      case Some(gameMode) if gameMode == 2 =>
-        computerVsComputer()
-        playTwice()
-      case Some(gameMode) if gameMode == 3 =>
-        println("\nThanks for playing!")
-      case None =>
-        println("\nInvalid input. Exiting program.")
+    private def printMatch(p1: Player, p2: Player): Unit = {
+      println(s"${p1.name} chose '${p1.move}'")
+      println(s"${p2.name} chose '${p2.move}'")
+      printResult(play(p1, p2))
     }
-    def next: State[Int, Option[Int]] =
-      State[Int, Option[Int]] {
-        case 0 => (0, None)
-        case x => (x - 1, Some(x))
+
+    def start(): Unit = {
+      println("Starting a new Game")
+      in.chooseMode() match {
+        case ComputerVsComputer =>
+          printMatch(randomPlayer("Computer 1"), randomPlayer("Computer 2"))
+        case UserVsComputer =>
+          val name = in.chooseName()
+          val move = in.chooseMove(moves)
+          printMatch(Player(name, move), randomPlayer("Computer"))
+      }
+      in.wantToContinue() match {
+        case Continue => start()
+        case Exit => println("Thank you for playing")
+      }
+    }
+
+  }
+
+  class InputParser(in: Reader) {
+    val modeSelectionPrompt =
+      """
+        |Please choose a mode:
+        |1.  Human vs Computer
+        |2.  Computer vs Computer
+      """.stripMargin
+
+    def chooseMode(): GameMode = Console.withIn(in) {
+      def chooseModeRec(): GameMode = StdIn.readLine(modeSelectionPrompt) match {
+        case "1" => UserVsComputer
+        case "2" => ComputerVsComputer
+        case _ =>
+          println("Error: Please choose 1 or 2")
+          chooseModeRec()
       }
 
-    def check: Option[Int] => Boolean = {
-      case None    => false
-      case Some(x) => /*println(s"$x...");*/ true
+      chooseModeRec()
     }
 
-    def countDown: State[Int, Boolean] = {
-      def go(choice: State[Int, Boolean]): State[Int, Boolean] = choice.flatMap {
-        case false => choice
-        case true => go(next map check)
+    def wantToContinue(): Action = Console.withIn(in) {
+      def wantToContinueRec(): Action = StdIn.readLine("Do you want to continue?(Y/N) ").toUpperCase match {
+        case "Y" => Continue
+        case "N" => Exit
+        case _ =>
+          println("Error: please type Y or N")
+          wantToContinueRec()
       }
-      go(next map check)
+
+      wantToContinueRec()
+    }
+
+    def chooseName(): String = Console.withIn(in) {
+      def chooseNameRec(): String = StdIn.readLine("Please, choose a name: ") match {
+        case "" => chooseNameRec()
+        case name => name
+      }
+
+      chooseNameRec()
+    }
+
+    def chooseMove(moves: List[Move]): Move = Console.withIn(in) {
+      val movesToString = moves.zipWithIndex.map {
+        case (m, p) => s"${p + 1}. $m"
+      } mkString "\n"
+      val moveSelectionPrompt = s"Please select a move:\n$movesToString\n"
+
+      def chooseMoveRec(): Move = StdIn.readLine(moveSelectionPrompt) match {
+        case n if n.forall(_.isDigit) && n.toInt > 0 && n.toInt <= moves.size => moves(n.toInt - 1)
+        case _ =>
+          println("Error!")
+          chooseMoveRec()
+      }
+
+      chooseMoveRec()
     }
   }
 
-  def computerVsComputer(): Unit = printGameResult(gameRunner.playComputerVsComputer())
+  trait Move
 
-  def playerVsComputer(): Unit = {
-    val numberToGestureNames = Gesture.numberToGestureName.foldLeft("") { case (result, (number, gestureName)) =>
-      result + s"\n$number) $gestureName"
+  case object Rock extends Move
+
+  case object Paper extends Move
+
+  case object Scissors extends Move
+
+  trait Moves {
+
+    protected val moves = List(Rock, Paper, Scissors)
+
+    protected val beats: Map[Move, List[Move]]
+
+    protected def randomMove: Move = moves(Random.nextInt(moves.size))
+
+    protected def canBeat(m1: Move, m2: Move) = beats.get(m1).exists(_.contains(m2))
+
+  }
+
+  trait GameMode
+
+  case object UserVsComputer extends GameMode
+
+  case object ComputerVsComputer extends GameMode
+
+  trait Action
+
+  case object Continue extends Action
+
+  case object Exit extends Action
+
+  trait GameContext extends Moves {
+
+    def play(p1: Player, p2: Player): GameResult = p1.move == p2.move match {
+      case true => Tie
+      case _ if canBeat(p1.move, p2.move) => Win(p1)
+      case _ => Win(p2)
     }
-    val chooseGestureMsg = s"""
-                              |Please choose your gesture:$numberToGestureNames
-                              |>""".stripMargin
 
-    retryUntilValidValue(letPlayerChooseIntValueWithMsg(chooseGestureMsg),
-      Gesture.numberToGestureName.keySet.toSeq: _*) match {
-      case Some(player1Gesture) => printGameResult(gameRunner.playPlayerVsComputer
-      (Gesture.findByNumber(player1Gesture)))
-      case None => println("\nInvalid input. Exiting program.")
-    }
+    def randomPlayer(name: String) = Player(name, randomMove)
   }
 
-  def retryUntilValidValue[T](userInputFunc: => Option[T], validValues: T*): Option[T] = {
-    Stream.continually(userInputFunc)
-      .flatten // only keep user inputs which got something in them
-      .find(userInput => validValues contains userInput) // only keep valid values
+  trait RockPaperScissors extends GameContext {
+    override protected val beats: Map[Move, List[Move]] =
+      Map(Rock -> List(Scissors), Scissors -> List(Paper), Paper -> List(Rock))
   }
 
-  def letPlayerChooseIntValueWithMsg(msg: String): Option[Int] = {
-    print(msg)
+  trait RockPaperScissorsSpockLizard extends GameContext {
 
-    for {
-      userInput <- Option(StdIn.readLine())
-      input <- Try(userInput.toInt).toOption
-    } yield input
+    case object Spock extends Move
+
+    case object Lizard extends Move
+
+    override val moves = List(Rock, Paper, Scissors, Spock, Lizard)
+
+    override protected val beats: Map[Move, List[Move]] =
+      Map(Rock -> List(Scissors, Lizard), Scissors -> List(Paper, Lizard), Paper -> List(Rock, Spock),
+        Spock -> List(Scissors, Rock), Lizard -> List(Paper, Spock))
+
   }
 
-  def printGameResult(result: (GameResult, Gesture, Gesture)): Unit = {
-    val (gameResult, player1Gesture, player2Gesture) = result
-    println(s"""
-               |Player 1 gesture: $player1Gesture
-               |Player 2 gesture: $player2Gesture
-               |
-        |===> $gameResult""".stripMargin)
-  }
+  sealed trait GameResult
+
+  case object Tie extends GameResult
+
+  case class Win(player: Player) extends GameResult
 
   def main(args: Array[String]): Unit = {
-    
+
   }
 }
