@@ -2,12 +2,12 @@ package state
 
 import scalaz.State
 
-sealed trait GameContext extends Moves {
+trait GameContext extends Moves {
 
-  def play(p1: Player, p2: Player): State[GameContext,GameResult] = p1.move == p2.move match {
-    case true => "Tie
-    case _ if canBeat(p1.move, p2.move) => "Win(p1)
-    case _ => "Win(p2)
+  def play(p1: Player, p2: Player): GameResult = p1.move == p2.move match {
+    case true => Tie
+    case _ if canBeat(p1.move, p2.move) => Win(p1)
+    case _ => Win(p2)
   }
 
   def randomPlayer(name: String) = Player(name, randomMove)

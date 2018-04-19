@@ -3,10 +3,10 @@ package state
 import java.io.{Reader, InputStreamReader}
 import scala.io.StdIn
 
-object GameAppMain{
+object GameApp {
   def main(args: Array[String]): Unit = {
     val input = new InputParser(new InputStreamReader(System.in))
-    val app = args.headOption.find(_ == "extended").fold( new GameApp(input) with RockPaperScissors ){ _ =>
+    val app = args.headOption.find(_ == "extended").fold(new GameApp(input) with RockPaperScissors) { _ =>
       new GameApp(input) with RockPaperScissors
     }
     app.start()
