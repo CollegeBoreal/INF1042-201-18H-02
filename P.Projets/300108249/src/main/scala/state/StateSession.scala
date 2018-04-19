@@ -62,7 +62,6 @@ object StateSession {
 
   println("composedFunction3: " + composedFunction3(Session(10)))
 
-
   val composedFunction4 = for {
     _ <- init[Session]
     _ <- funcReturnString("session")
@@ -98,6 +97,15 @@ object StateSession {
 
 
   def main(args: Array[String]): Unit = {
+    println("composedFunction1: " + composedFunction1(Session(0)))
+    println("composedFunction1: " + composedFunction1(Session(0)))
+    println("composedFunction2: " + composedFunction2(null))
+    println("composedFunction1and2: " + composedFunction1and2(Session(0)))
+    println("composedFunction3: " + composedFunction3(Session(10)))
+    println("composedFunction4: " + composedFunction4(Session(10)))
+    println("composedFunction5: " + composedFunction5(Session(10)))
+    println("composedFunction6: " + composedFunction6(Session(10)))
+
 
   }
 }
