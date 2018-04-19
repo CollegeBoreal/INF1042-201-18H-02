@@ -3,13 +3,13 @@ package state
 import scala.util.Random
 
 trait Move
-case object Rock extends Move
-case object Paper extends Move
-case object Scissors extends Move
+case object Roche extends Move
+case object Papier extends Move
+case object Ciseaux extends Move
 
 trait Moves {
 
-  protected val moves = List(Rock,Paper,Scissors)
+  protected val moves = List(Roche,Papier,Ciseaux)
 
   protected val beats:Map[Move,List[Move]]
 
