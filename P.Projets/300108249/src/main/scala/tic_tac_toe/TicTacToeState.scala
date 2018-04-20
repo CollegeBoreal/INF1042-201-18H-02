@@ -65,5 +65,5 @@ class TicTacToeState(val playerOnePositions : Set[Position],
     true, winLength)
 }
 
-
+//
 //to do prof voit rien
