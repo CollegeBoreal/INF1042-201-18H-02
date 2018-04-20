@@ -1,47 +1,23 @@
 package tic_tac_toe
 
 case class Position(val row: Int, val col: Int)
-
-
-
 class TicTacToeState(val playerOnePositions : Set[Position],
-
                      val playerTwoPositions : Set[Position],
-
                      val availablePositions : Set[Position],
-
                      val isPlayerOneTurn : Boolean,
-
                      val winLength : Int) extends State[TicTacToeState] {
 
-
-
   lazy val isGameOver  : Boolean =
-
     availablePositions.isEmpty || playerOneWin || playerTwoWin
-
-
-
   lazy val playerOneWin: Boolean = checkWin(playerOnePositions)
-
-
-
   lazy val playerTwoWin: Boolean = checkWin(playerTwoPositions)
 
-
-
   def generateStates: Seq[TicTacToeState] =
-
     for(pos <- availablePositions.toSeq) yield makeMove(pos)
 
-
-
   def makeMove(p: Position): TicTacToeState = {
-
     assert(availablePositions.contains(p))
-
     if(isPlayerOneTurn)
-
       new TicTacToeState(
 
         playerOnePositions + p,
