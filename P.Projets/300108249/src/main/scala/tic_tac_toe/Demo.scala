@@ -12,7 +12,7 @@ object Demo{
 
     println(" Tic tac toe ")
 
-   
+
 
   }
 
