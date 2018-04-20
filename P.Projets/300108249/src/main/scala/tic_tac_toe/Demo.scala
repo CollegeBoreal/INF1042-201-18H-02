@@ -6,11 +6,7 @@ object Demo{
       new MinMaxStrategyFinder[TicTacToeState]())
     game.play
   def main(args: Array[String]): Unit = {
-    println("")
 
-    println(" - - - - - - - - - ")
-
-    println(" Tic tac toe ")
 
 
 
