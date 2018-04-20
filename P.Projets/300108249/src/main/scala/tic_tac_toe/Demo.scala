@@ -6,3 +6,4 @@ object Demo extends Application {
     new MinMaxStrategyFinder[TicTacToeState]())
   game.play
 }
+//to do prof voit rien

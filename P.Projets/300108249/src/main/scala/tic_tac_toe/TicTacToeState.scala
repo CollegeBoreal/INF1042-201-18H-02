@@ -109,7 +109,6 @@ class TicTacToeState(val playerOnePositions : Set[Position],
   def winConditionsSatisified(step: StepOffsetGen)
 
   (positions: Set[Position]): Boolean =
-
   positions exists( position =>
 
     (0 until winLength) forall( offset =>
@@ -124,3 +123,4 @@ class TicTacToeState(val playerOnePositions : Set[Position],
          col <- (1 to dimension)} yield Position(row, col)).toSet,
     true, winLength)
 }
+//to do prof voit rien

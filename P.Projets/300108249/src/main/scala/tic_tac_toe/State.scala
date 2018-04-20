@@ -12,3 +12,4 @@ trait State[S <: State[S]] {
   def generateStates  : Seq[S]
 
 }
+//to do prof voit rien

@@ -30,3 +30,4 @@ class MinMaxStrategyFinder[S <: State[S]] extends BestMoveFinder[S] {
   def maximize: Criteria = (a, b) => a >= b
   def minimize: Criteria = (a, b) => a <= b
 }
+//to do prof voit rien

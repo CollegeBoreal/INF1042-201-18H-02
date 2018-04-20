@@ -12,3 +12,4 @@ class HumanTicTacPlayer extends BestMoveFinder[TicTacToeState] {
         println("Such move is impossible!")
         move(s)}}}
 }
+//to do prof voit rien
