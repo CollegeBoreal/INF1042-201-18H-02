@@ -109,18 +109,26 @@ class TicTacToeState(val playerOnePositions : Set[Position],
   def winConditionsSatisified(step: StepOffsetGen)
 
   (positions: Set[Position]): Boolean =
+
   positions exists( position =>
 
     (0 until winLength) forall( offset =>
 
       positions contains step(position, offset)))
 
+
+
+  // Just additional constructor for convenience
+
   def this(dimension: Int, winLength: Int) = this(
 
-    Set(), Set(),
+    Set(), Set(), // positions of the players are empty initially
 
-    (for{row <- (1 to dimension)
+    (for{row <- (1 to dimension) // initialize available positions
+
          col <- (1 to dimension)} yield Position(row, col)).toSet,
+
     true, winLength)
+
 }
 //to do prof voit rien
