@@ -1,12 +1,6 @@
-package example
+ package state
 
-
-
-import scalaz.{~>,Id,Free,Functor}, Free.Return, Free.Suspend, Id.Id
-
-
-
-object Signaling {
+ object Signaling {
 
   sealed trait Aspect
 
@@ -34,10 +28,9 @@ object Signaling {
 
   object Signal {
 
-    import scalaz.syntax.state._
+   // import scalaz.syntax.state._
 
     import scalaz.State, State._
-
 
 
     type ->[A,B] = (A,B)
@@ -45,20 +38,12 @@ object Signaling {
     type SignalState[A] = State[Signal,A]
 
 
-
-    // dysfunctional lights revert to their flashing
-
-    // red lights to act as a stop sign to keep folks safe.
-
     val default = Signal(
 
       isOperational = false,
 
       display = Map(Red -> Flashing, Amber -> Off, Green -> Off))
 
-
-
-    // make the signal avalible for use
 
     def enable: State[Signal, Boolean] =
 
