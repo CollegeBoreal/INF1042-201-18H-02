@@ -63,7 +63,14 @@ class TicTacToeState(val playerOnePositions : Set[Position],
     (for{row <- (1 to dimension) // initialize available positions
          col <- (1 to dimension)} yield Position(row, col)).toSet,
     true, winLength)
+  def main(args: Array[String]): Unit = {
+
+
+
+
+
+  }
 }
 
-//
+
 //to do prof voit rien
