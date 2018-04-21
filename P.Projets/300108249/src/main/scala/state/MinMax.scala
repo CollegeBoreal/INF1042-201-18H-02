@@ -1,5 +1,7 @@
-object MinMax {
 
+
+
+object MinMax{
 
   // Returns the optimal value a maximizer can obtain.
   // depth is current depth in game tree.
