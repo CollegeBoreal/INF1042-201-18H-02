@@ -1,5 +1,5 @@
 
-
+```scala
 package state
 
 // https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
@@ -54,3 +54,4 @@ object GFG {
 }
 
 // This article is contributed by vt_m
+```
