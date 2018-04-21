@@ -76,8 +76,7 @@ object Signaling {
     program.eval(default).zipWithIndex.foreach { case (v,i) =>
       println(s"r$i - $v")
 
-      //assert(Signalignal(Map(Red -> Flashing, Ambre -> off, Green -> off)= r0))
-
+      
       assert(true)
     }
   }
