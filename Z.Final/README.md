@@ -17,33 +17,32 @@ Data Sharing
 
 ### Scala Programming
 
-Companion Object   
+    Companion Object   
+        Main (Fonction Principale)
 
-Main (Fonction Principale)
-
-assert (Testing)A
+    assert (Testing)A
 
     Pattern Matching:
        case (creer le pattern)   
        match -> case 
 
-For Expression
+    For Expression
 
-Parametric Monomorphic/Polymorphic
+    Parametric Monomorphic/Polymorphic
 
 ### Functional Programming 
 
-Functor:
-   map
+    Functor:
+       map
 
-Foldable:
-   fold
+    Foldable:
+       fold
 
-Monoid:
-   unit (id)
-   operation
+    Monoid:
+       unit (id)
+       operation
 
-Monad:
-   unit and flatMap
-   unit and compose
-   unit, map and join
+    Monad:
+       unit and flatMap
+       unit and compose
+       unit, map and join
