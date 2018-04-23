@@ -1,15 +1,16 @@
 package state
 
 import java.io.{Reader, InputStreamReader}
-
 import scala.io.StdIn
 
-object GameApp extends App {
-  val input = new InputParser(new InputStreamReader(System.in))
-  val app = args.headOption.find(_ == "extended").fold( new GameApp(input) with RockPaperScissors ){ _ =>
-    new GameApp(input) with RockPaperScissors
+object GameApp {
+  def main(args: Array[String]): Unit = {
+    val input = new InputParser(new InputStreamReader(System.in))
+    val app = args.headOption.find(_ == "extended").fold(new GameApp(input) with RockPaperScissors) { _ =>
+      new GameApp(input) with RockPaperScissors
+    }
+    app.start()
   }
-  app.start()
 }
 
 class GameApp(in: InputParser) { self:GameContext =>
@@ -90,13 +91,13 @@ class InputParser(in: Reader) {
     def chooseMoveRec(): Move = StdIn.readLine(moveSelectionPrompt) match {
       case n if n.forall(_.isDigit) && n.toInt > 0 && n.toInt <= moves.size => moves(n.toInt - 1)
       case _ =>
-        println("Error!")
+        println("Erreur!")
         chooseMoveRec()
     }
     chooseMoveRec()
   }
-}
 
+}
 trait GameMode
 
 case object UserVsComputer extends GameMode
