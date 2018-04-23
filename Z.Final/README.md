@@ -23,11 +23,9 @@ Main (Fonction Principale)
 
 assert (Testing)A
 
-Pattern Matching:
-
-   case (creer le pattern)
-   
-   match -> case 
+    Pattern Matching:
+       case (creer le pattern)   
+       match -> case 
 
 For Expression
 
