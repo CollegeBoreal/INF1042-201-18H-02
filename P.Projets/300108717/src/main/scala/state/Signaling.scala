@@ -1,6 +1,14 @@
- package state
+package state
 
- object Signaling {
+
+
+// import scalaz.{~>,Id,Free,Functor}, Free.Return, Free.Suspend, Id.Id
+
+
+    //    http://timperrett.com/2013/11/25/understanding-state-monad/
+
+
+object Signaling {
 
   sealed trait Aspect
 
@@ -28,15 +36,21 @@
 
   object Signal {
 
-   // import scalaz.syntax.state._
+    import scalaz.syntax.state._
 
     import scalaz.State, State._
+
 
 
     type ->[A,B] = (A,B)
 
     type SignalState[A] = State[Signal,A]
 
+
+
+    // dysfunctional lights revert to their flashing
+
+    // red lights to act as a stop sign to keep folks safe.
 
     val default = Signal(
 
