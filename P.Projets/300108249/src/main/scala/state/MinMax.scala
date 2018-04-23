@@ -1,8 +1,7 @@
 package state
 
-import java.lang.Math.{max, min}
+import Math.{max, min}
 import scalaz.State
-
 
 // https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
 // A simple scala program to find maximum score that
@@ -26,26 +25,28 @@ object MinMax {
     // isMax is true if current move is of maximizer, else false
     // scores[] stores leaves of Game tree.
     // h is maximum height of Game tree
-    def go(depth: Int, nodeIndex: Int, isMax: Boolean, h: Int): List[Int] => Int = { scores =>
-
+    def go(depth: Int, nodeIndex: Int, isMax: Boolean, h: Int): State[Stack, Int] = State { scores =>
+//etat scores est opil
       // Terminating condition. i.e leaf node is reached
       if (depth == h)
-        scores(nodeIndex)
+        (scores, scores(nodeIndex))  //(etat, optimal)    (scores, optimal)
       else if (isMax) {
         // If current move is maximizer, find the maximum attainable value
         val left = go(depth + 1, nodeIndex * 2, false, h)(scores)
         val right = go(depth + 1, nodeIndex * 2 + 1, false, h)(scores)
-        max(left, right)
+        (scores, max(left._2, right))
         //( (left,right) => (left._1 min right._1,left._2 max right._2) )
       } else {
         // Else (If current move is Minimizer), find the minimum attainable value
         val left = go(depth + 1, nodeIndex * 2, true, h)(scores)
         val right = go(depth + 1, nodeIndex * 2 + 1, true, h)(scores)
-        min(left, right)
+        (scores, min(left, right))         //int
       }
+      (scores, 0)
     }
     val h = log2(scores.length)
     go(0, 0, true, h)(scores)
+
   }
 
 
