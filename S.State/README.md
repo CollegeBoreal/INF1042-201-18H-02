@@ -26,7 +26,7 @@ s -> (a, s)
 
 Soit un état initial s (aussi appelé Seed) retournant (->) un nouvel état et une valeur de retour (a, s)
  
-La valeur de retour et avec son nouvel état sont retourné sous forme de tuple. (a, s)
+La valeur de retour et avec son nouvel état sont retourné sous forme de `tuple`. (a, s)
  
 (je vous recommande d'éxécuter cet example sous le REPL scala) en tapant
 
@@ -36,7 +36,7 @@ $ sbt console
 
 ======================================
  
-Pour rappel, un tuple est composé de 2 valeurs entourées de parenthèses   
+Pour rappel, un `tuple` est composé de 2 valeurs entourées de parenthèses   
  
 ```
 scala> ("Etat",4)
@@ -68,9 +68,9 @@ res0: scalaz.State[List[Int],Int] = scalaz.IndexedStateT$$anon$12@46af092d
  
 Le State Monad ainsi construit retourne un tuple où :
 
-*	La queue de la liste se retrouve dans le nouvel état et la tête dans la valeur de retour quand la liste n'est pas vide. (xs, x)
+*	La queue de la liste se retrouve dans le nouvel état et la tête dans la valeur de retour quand la liste n'est pas vide.     `(xs, x)`
 
-*	La liste vide dans l'état et la valeur 0 dans la valeur de retour par défaut (Nil,0)
+*	La liste vide dans l'état et la valeur 0 dans la valeur de retour par défaut `(Nil,0)`
  
 ### Exécution de l'état:
  
