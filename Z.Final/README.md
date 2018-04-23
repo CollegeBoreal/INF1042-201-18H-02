@@ -9,6 +9,8 @@
 
     Tree: DAG
         Left, Right
+        
+    Tuple:
 
     Data Sharing
 
