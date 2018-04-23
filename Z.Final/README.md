@@ -1,4 +1,6 @@
-Data Structure:
+# Final
+
+## Data Structure:
 
 ADT (Algebraic Data Type)
 List : 
@@ -11,7 +13,9 @@ Tree: DAG
 Data Sharing
 
 
-Control Structure:
+## Control Structure:
+
+### Scala Programming
 
 Companion Object   
 
@@ -20,12 +24,16 @@ Main (Fonction Principale)
 assert (Testing)A
 
 Pattern Matching:
+
    case (creer le pattern)
+   
    match -> case 
 
 For Expression
 
 Parametric Monomorphic/Polymorphic
+
+### Functional Programming 
 
 Functor:
    map
@@ -41,9 +49,3 @@ Monad:
    unit and flatMap
    unit and compose
    unit, map and join
-
- 
-
-
-Monoid:
-   
