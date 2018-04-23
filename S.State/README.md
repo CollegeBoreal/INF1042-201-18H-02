@@ -14,7 +14,7 @@ Basics of [Category Theory](https://en.wikipedia.org/wiki/Category_theory) such 
  
 # State Monad
  
-## Defition
+## Definition
 
 http://eed3si9n.com/learning-scalaz/State.html#State+and+StateT
  
