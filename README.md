@@ -22,7 +22,7 @@ Introduction a la programmation
 |12|02-04-18| [5.State](5.State)   | Chapitre 6                              | Functional State          |
 |13|09-04-18|                      |                                         |                           |
 |14|16-04-18| [7.Monad](7.Monad)   | Chapitre 11                             | Functional State Monad    |
-|15|23-04-18| Fin des cours        |                                         |                           |
+|15|23-04-18| [Z.Final](Z.Final)   | Projet                                  | Fin des cours             |
 
 
 - Functional Programming
