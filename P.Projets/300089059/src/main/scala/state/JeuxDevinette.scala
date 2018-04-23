@@ -8,12 +8,12 @@ object JeuxDevinette  {
   {
     var petit = 0
     var grand = 100
-    var devine = new Random().nextInt
+    val devine = new Random(14)
+    val perdu = 4
     val aide =  " petit, grand or perdu"
 
     println("devine un chiffre entre " + 0 + " et " + 100)
     println("devine")
-
 
     println(14)
     while (true)
@@ -26,7 +26,7 @@ object JeuxDevinette  {
         case "exit" => sys.exit
         case x => println("Inconnu option: '" + x + "'")
       }
-      devine = prochain
+      devine = 14
     }
 
     def petit = plus grand = devine
