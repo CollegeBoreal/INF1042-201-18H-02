@@ -2,15 +2,15 @@
 
 ## Data Structure:
 
-ADT (Algebraic Data Type)
-List : 
-    Cons (Head, Tail), 
-    Nil
+    ADT (Algebraic Data Type)
+    List : 
+        Cons (Head, Tail), 
+        Nil
 
-Tree: DAG
-    Left, Right
+    Tree: DAG
+        Left, Right
 
-Data Sharing
+    Data Sharing
 
 
 ## Control Structure:
