@@ -1,49 +1,50 @@
-Data Structure:
+# Final
 
-ADT (Algebraic Data Type)
-List : 
-    Cons (Head, Tail), 
-    Nil
+## Data Structure:
 
-Tree: DAG
-    Left, Right
+    ADT (Algebraic Data Type)
+    List : 
+        Cons (Head, Tail), 
+        Nil
 
-Data Sharing
+    Tree: DAG
+        Left, Right
+        
+    Tuple:
 
-
-Control Structure:
-
-Companion Object   
-
-Main (Fonction Principale)
-
-assert (Testing)A
-
-Pattern Matching:
-   case (creer le pattern)
-   match -> case 
-
-For Expression
-
-Parametric Monomorphic/Polymorphic
-
-Functor:
-   map
-
-Foldable:
-   fold
-
-Monoid:
-   unit (id)
-   operation
-
-Monad:
-   unit and flatMap
-   unit and compose
-   unit, map and join
-
- 
+    Data Sharing
 
 
-Monoid:
-   
+## Control Structure:
+
+### Scala Programming
+
+    Companion Object   
+        Main (Fonction Principale)
+
+    assert (Testing)A
+
+    Pattern Matching:
+       case (creer le pattern)   
+       match -> case 
+
+    For Expression
+
+    Parametric Monomorphic/Polymorphic
+
+### Functional Programming 
+
+    Functor:
+       map
+
+    Foldable:
+       fold
+
+    Monoid:
+       unit (id)
+       operation
+
+    Monad:
+       unit and flatMap
+       unit and compose
+       unit, map and join

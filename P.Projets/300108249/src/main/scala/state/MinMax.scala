@@ -1,0 +1,55 @@
+package state
+
+import java.lang.Math.{max, min}
+import scalaz.State
+
+// https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
+// A simple scala program to find maximum score that
+// maximizing player can get.
+object MinMax {
+
+  type Stack = List[Int]
+  // A utility function to find Log n in base 2
+  def log2(n: Int): Int = if (n == 1) 0 else 1 + log2(n / 2)
+
+  def apply(scores: List[Int]): Int = {
+
+    // Returns the optimal value a maximizer can obtain.
+    // depth is current depth in game tree.
+    // nodeIndex is index of current node in scores[].
+    // isMax is true if current move is of maximizer, else false
+    // scores[] stores leaves of Game tree.
+    // h is maximum height of Game tree
+    def go(depth: Int, nodeIndex: Int, isMax: Boolean, h: Int): State[Stack,Int] = { scores =>
+
+      // Terminating condition. i.e leaf node is reached
+      if (depth == h)
+        scores(nodeIndex)
+      else if (isMax) {
+        // If current move is maximizer, find the maximum attainable value
+        val left = go(depth + 1, nodeIndex * 2, false, h)(scores)
+        val right = go(depth + 1, nodeIndex * 2 + 1, false, h)(scores)
+        max(left, right)
+      } else {
+        // Else (If current move is Minimizer), find the minimum attainable value
+        val left = go(depth + 1, nodeIndex * 2, true, h)(scores)
+        val right = go(depth + 1, nodeIndex * 2 + 1, true, h)(scores)
+        min(left, right)
+      }
+    }
+
+    val h = log2(scores.length)
+    go(0, 0, true, h)(scores)
+  }
+
+  // Driver code
+  def main(args: Array[String]): Unit = { // The number of elements in scores must be
+    // a power of 2.
+    val scores = List(3, 5, 2, 9)
+    val res = MinMax(scores)
+    println("The optimal value is : " + res)
+  }
+
+}
+
+// This article is contributed by vt_m
