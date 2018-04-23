@@ -1,7 +1,10 @@
 package state
-
+import scalaz.State
 import java.io.{Reader, InputStreamReader}
 import scala.io.StdIn
+/*
+https://github.com/nicocavallo/rockpaperscissors-scala/tree/master/src/main/scala/challenge
+ */
 
 object GameApp {
   def main(args: Array[String]): Unit = {
@@ -14,15 +17,13 @@ object GameApp {
 }
 
 class GameApp(in: InputParser) { self:GameContext =>
-
-  private def printResult(result: GameResult): Unit = result match {
-    case Win(player) => println(s"The winner is '$player'")
-    case Tie => println("It was a Tie")
+  private def printResult(result: State[GameContext, GameResult]): Unit = result match {
+    case (s,Win(player)) => println(s"Le gagnant est '$player'")
+    case (s,Tie) => println("C'est un match nul!")
   }
-
   private def printMatch(p1:Player, p2:Player): Unit = {
-    println(s"${p1.name} chose '${p1.move}'")
-    println(s"${p2.name} chose '${p2.move}'")
+    println(s"${p1.name} choisir '${p1.move}'")
+    println(s"${p2.name} choisir '${p2.move}'")
     printResult(play(p1,p2))
   }
 
@@ -41,7 +42,6 @@ class GameApp(in: InputParser) { self:GameContext =>
       case Exit => println("Merci d'avoir joué")
     }
   }
-
 }
 
 class InputParser(in: Reader) {
