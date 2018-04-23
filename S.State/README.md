@@ -10,13 +10,6 @@ Basics of [Category Theory](https://en.wikipedia.org/wiki/Category_theory) such 
   * types as propositions
   
   
-Reference:
-
-Category Theory: https://plato.stanford.edu/entries/category-theory/
-
-Intro to Scalaz by Michael Pilquist: https://speakerdeck.com/mpilquist/intro-to-scalaz
-
-Scalaz State Monad by Michael Pilquist: https://speakerdeck.com/mpilquist/scalaz-state-monad
 
  
 # State Monad
@@ -121,7 +114,14 @@ scala> res0.exec(Nil)
 res4: scalaz.Id.Id[List[Int]] = List()
 ```
  
- 
+# Reference:
+
+Category Theory: https://plato.stanford.edu/entries/category-theory/
+
+Intro to Scalaz by Michael Pilquist: https://speakerdeck.com/mpilquist/intro-to-scalaz
+
+Scalaz State Monad by Michael Pilquist: https://speakerdeck.com/mpilquist/scalaz-state-monad
+
  
  
  
