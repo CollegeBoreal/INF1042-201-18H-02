@@ -34,13 +34,13 @@ object MinMax {
         // If current move is maximizer, find the maximum attainable value
         val left = go(depth + 1, nodeIndex * 2, false, h)(scores)
         val right = go(depth + 1, nodeIndex * 2 + 1, false, h)(scores)
-        (scores, max(left._2, right))
+        (scores, max(left._1, right._2))
         //( (left,right) => (left._1 min right._1,left._2 max right._2) )
       } else {
         // Else (If current move is Minimizer), find the minimum attainable value
         val left = go(depth + 1, nodeIndex * 2, true, h)(scores)
         val right = go(depth + 1, nodeIndex * 2 + 1, true, h)(scores)
-        (scores, min(left, right))         //int
+        (scores, min(left._1, right._2))         //int
       }
       (scores, 0)
     }
