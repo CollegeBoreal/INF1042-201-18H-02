@@ -20,11 +20,13 @@ class GameApp(in: InputParser) { self:GameContext =>
   private def printResult(result: GameResult): Unit = result match {
     case Win(player) => println(s"Le gagnant est '$player'")
     case Tie => println("C'est un match nul!")
+
   }
   private def printMatch(p1:Player, p2:Player): Unit = {
     println(s"${p1.name} choisir '${p1.move}'")
     println(s"${p2.name} choisir '${p2.move}'")
-    printResult(play(p1,p2))
+    printResult(play(p1,p2).eval(self))
+
   }
 
   def start(): Unit = {

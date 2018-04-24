@@ -2,10 +2,10 @@ package state
 import scalaz.State
 trait GameContext extends Moves {
 
-    def play(p1: Player, p2: Player): State[GameContext,GameResult] = State {s=>
+    def play(p1: Player, p2: Player): State[GameContext,GameResult] = State { s =>
       p1.move == p2.move match {
-        case true => (s,Tie)
-        case _ if canBeat(p1.move, p2.move) => (s,Win(p1))
+        case true => (s, Tie)
+        case _ if canBeat(p1.move, p2.move) => (s, Win(p1))
         case _ => (s, Win(p2))
       }
     }
