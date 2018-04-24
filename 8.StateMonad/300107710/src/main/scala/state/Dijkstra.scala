@@ -1,3 +1,4 @@
+package state
 import scalaz.State
 
 object Dijkstra {
