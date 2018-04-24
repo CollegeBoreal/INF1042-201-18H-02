@@ -1,8 +1,6 @@
 package state
 
-//Timothy Perrett . Understanding the State MonadTimothy Perrett . Understanding the State Monad
-
-//import scalaz.{~>,Id,Free,Functor}, Free.Return, Free.Suspend, Id.Id
+import scalaz.{~>,Id,Free,Functor}, Free.Return, Free.Suspend, Id.Id
 
 object Signaling {
   sealed trait Aspect
@@ -58,47 +56,29 @@ object Signaling {
       else default
   }
 
-
+  def main(args: Array[String]): Unit = {
     import Signal._
     import scalaz.State.{get => current}
 
     val program = for {
       _  <- enable
-      r0 <- current
+      r0 <- current // debuggin
       _  <- halt
-      r1 <- current
+      r1 <- current // debuggin
       _  <- ready
-      r2 <- current
+      r2 <- current // debuggin
       _  <- go
-      r3 <- current
+      r3 <- current // debuggin
       _  <- slow
       r4 <- current
     } yield r0 :: r1 :: r2 :: r3 :: r4 :: Nil
 
-  def main(args: Array[String]): Unit = {
-
-    val s= program.eval(default)
-    s.zipWithIndex.foreach { case (v,i) =>
+    program.eval(default).zipWithIndex.foreach { case (v,i) =>
       println(s"r$i - $v")
 
-      //assert(true)
+      //assert(Signalignal(Map(Red -> Flashing, Ambre -> off, Green -> off)= r0))
+
+      assert(true)
     }
-
-   val program1 = for {
-      _  <- enable
-      r0 <- current
-      } yield r0
-
-    val program2 = for {
-      _  <- halt
-      r1 <- current
-      } yield r1
-
-
-    assert(program1.eval(default) == Signal(true,Map(Red -> Flashing, Amber -> Off, Green -> Off)))
-    //assert(program1.eval(default) == Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off)))
-    //assert(program2.eval(default) == Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off)))
-
-
   }
 }

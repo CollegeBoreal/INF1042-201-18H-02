@@ -31,10 +31,11 @@ object Dijkstra {
     println(res)
     //assert(Dijkstra[String](lookup, List("a", "e", Set())==(25, List( "a", "c", "d", "e"))))
 
-    assert(true)
+    //assert(true)
 
     //Source: https://rosettacode.org/wiki/Dijkstra%27s_algorithm
 
   }
 }
+
 
