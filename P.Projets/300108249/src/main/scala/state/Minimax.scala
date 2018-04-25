@@ -70,7 +70,18 @@ object Minimax {
     assert(Minimax.apply(List(1,2,3,4))==3)
     assert(Minimax.apply(List(154, 135, 277, 496, 978))==277)
     assert(Minimax.apply(List(53, 18, 90, 16, 998))==18)
-    assert(apply(List(14, 35, -7, 46, 98))==14)
+
+    assert(Minimax.apply(List(100000000, 500000, 100))==100000000)
+    assert(Minimax.apply(List(1,2,3,4))==3)
+
+
+
+
+
+
+    assert(Minimax.apply(List(1,2,3,4)).byteValue==3)
+
+
    
  }
 
