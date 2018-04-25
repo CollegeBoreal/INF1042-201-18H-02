@@ -17,31 +17,41 @@ object GameApp {
 }
 
 class GameApp(in: InputParser) { self:GameContext =>
-  private def printResult(result: State[GameContext, GameResult]): Unit = result match {
-    case (s,Win(player)) => println(s"Le gagnant est '$player'")
-    case (s,Tie) => println("C'est un match nul!")
+  private def printResult(result: GameResult): Unit = result match {
+    case Win(player) => println(s"Le gagnant est '$player'")
+    case Tie => println("C'est un match nul!")
+
   }
   private def printMatch(p1:Player, p2:Player): Unit = {
     println(s"${p1.name} choisir '${p1.move}'")
     println(s"${p2.name} choisir '${p2.move}'")
-    printResult(play(p1,p2))
+    printResult(play(p1,p2).eval(self))
+
   }
 
   def start(): Unit = {
-    println("Commencer une nouvelle partie")
-    in.chooseMode() match {
-      case ComputerVsComputer =>
-        printMatch(randomPlayer("Ordinateur 1"), randomPlayer("Ordinateur 2"))
-      case UserVsComputer =>
-        val name = in.chooseName()
-        val move = in.chooseMove(moves)
-        printMatch(Player(name, move), randomPlayer("Ordinateur"))
+    def next: State[Int, Option[Int]] =
+      State[Int, Option[Int]] {
+        case 0 => (0, None)
+        case x => (x - 1, Some(x))
+      }
+    def check: Option[Int] => Boolean = {
+      case None    => false
+      case Some(x) => /*println(s"$x...");*/ true
     }
-    in.wantToContinue() match {
-      case Continue => start()
-      case Exit => println("Merci d'avoir joué")
+    def countDown: State[Int, Boolean] = {
+      def go(choice: State[Int, Boolean]): State[Int, Boolean] = choice.flatMap {
+        case false => choice
+        case true =>
+          val name = in.chooseName()
+          val move = in.chooseMove(moves)
+          printMatch(Player(name, move), randomPlayer("Ordinateur"))
+          go(next map check)
+      }
+      go(next map check)
     }
-  }
+    countDown.exec(6)
+    }
 }
 
 class InputParser(in: Reader) {

@@ -1,48 +1,35 @@
-package state
+import scala.util._
 
-object JeuxDevinette  {
+object Game extends App
+{
+  var smallest = 0
+  var biggest = 100
+  var guess = new Random().nextInt(biggest)
+  val help = "You can enter the following commands : smaller, bigger or exit"
 
-  import scala.util._
+  println("Guess a number between " + smallest + " and " + biggest)
+  println("Are you ready please press enter")
+  ()
 
-  object JeuxDevinette
+  println(help)
+  while (true)
   {
-    var petit = 0
-    var grand = 100
-    val devine = new Random(14)
-    val perdu = 4
-    val aide =  " petit, grand or perdu"
-
-    println("devine un chiffre entre " + 0 + " et " + 100)
-    println("devine")
-
-    println(14)
-    while (true)
+    println("Is your number : " + guess)
+    () match
     {
-      println("ton chiffre : " + devine)
-       match
-      {
-        case "petit" => petit
-        case "grand" => grand
-        case "exit" => sys.exit
-        case x => println("Inconnu option: '" + x + "'")
-      }
-      devine = 14
+      case smaller => smaller
+      case bigger => bigger
+      case exit => sys.exit
+      case help => println
+      case x => println("Unknown option: '" + x + "'")
     }
-
-    def petit = plus grand = devine
-
-    def grand = plus petit = devine
-
-    def nextGuess = (plus petit + plus grand)
-
-    def main(args: Array[String]): Unit =
-      assert(boolean)
-    assert(countDown.run(4)==(0,false))
-
-
+    guess = nextGuess
   }
 
-  }
+  def smaller = biggest = guess
 
+  def bigger = smallest = guess
 
+  def nextGuess = (smallest + biggest) / 2
 
+}

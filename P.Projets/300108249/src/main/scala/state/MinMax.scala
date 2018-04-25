@@ -1,6 +1,7 @@
 package state
 
 import Math.{max, min}
+
 import scalaz.State
 
 // https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
@@ -34,18 +35,18 @@ object MinMax {
         // If current move is maximizer, find the maximum attainable value
         val left = go(depth + 1, nodeIndex * 2, false, h)(scores)
         val right = go(depth + 1, nodeIndex * 2 + 1, false, h)(scores)
-        (scores, max(left._1, right._2))
+        (scores, Math.max(left._2, right._2))// la position de l'état
         //( (left,right) => (left._1 min right._1,left._2 max right._2) )
       } else {
         // Else (If current move is Minimizer), find the minimum attainable value
         val left = go(depth + 1, nodeIndex * 2, true, h)(scores)
         val right = go(depth + 1, nodeIndex * 2 + 1, true, h)(scores)
-        (scores, min(left._1, right._2))         //int
+        (scores, Math.min(left._2, right._2))         //int
       }
-      (scores, 0)
+
     }
     val h = log2(scores.length)
-    go(0, 0, true, h)(scores)
+    go(0, 0, true, h)(scores)._2
 
   }
 
@@ -56,14 +57,22 @@ object MinMax {
     val scores = List(3, 5, 2, 9)
     val res = MinMax(scores)
     println("The optimal value is : " + res)
-    //val (max, min) = List(1, 5, 8, 9, 10, 12) partition ( _ >= 0 )
-    //println(List(14, 35, -7, 46, 98).reduceLeft ( _ min _ ))
-    //println(List(14, 35, -7, 46, 98).min)
+    val (max, min) = List(1, 5, 8, 9, 10, 12) partition ( _ >= 0 )
+
+    println(MinMax(List(14, 35, 46, 98)))
+    println(MinMax.apply(List(14, 35, 46, 98)))
+    println(apply(List(14, 35, 46, 98)))
 
 
-    //println(List(14, 35, -7, 46, 98).reduceLeft ( _ max _ ))
-    //println(List(14, 35, -7, 46, 98).max)
-  }
+
+    assert(MinMax(List(14, 35, 46, 98))==46)
+    assert(MinMax.apply(List(14, 35, -7, 46, 98))==14)
+    assert(MinMax.apply(List(1,2,3,4))==3)
+    assert(MinMax.apply(List(154, 135, 277, 496, 978))==277)
+    assert(MinMax.apply(List(53, 18, 90, 16, 998))==18)
+    assert(apply(List(14, 35, -7, 46, 98))==14)
+   
+ }
 
 }
 
