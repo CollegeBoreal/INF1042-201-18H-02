@@ -63,7 +63,7 @@ object MinMax {
     println(MinMax.apply(List(14, 35, 46, 98)))
     println(apply(List(14, 35, 46, 98)))
 
-    
+
 
     assert(MinMax(List(14, 35, 46, 98))==46)
     assert(MinMax.apply(List(14, 35, -7, 46, 98))==14)
@@ -71,10 +71,7 @@ object MinMax {
     assert(MinMax.apply(List(154, 135, 277, 496, 978))==277)
     assert(MinMax.apply(List(53, 18, 90, 16, 998))==18)
     assert(apply(List(14, 35, -7, 46, 98))==14)
-   //println(MinMax(List(4, 3, 1, 2, 5)))
-    //assert(MinMax(List(14, 35, -7, 46, 98))== (-7,List(1, 5, 8, 9, 10, 12)))
-    //assert(MinMax(10000000, -500) == (-500, 10000000))
-
+   
  }
 
 }
