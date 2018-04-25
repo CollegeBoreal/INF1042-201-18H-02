@@ -45,8 +45,11 @@ object DijkstraSearch {
     )
     val res = Dijkstra[String](List((0, List("a"))), dest = "e")(lookup)
     assert(res._2==(26.0,List("a", "c", "d", "e")))
-
-    //println(res._2)
+    val res1 = Dijkstra[String](List((0, List("a"))), dest = "d")(lookup)
+    assert(res1._2==(20.0,List("a", "c", "d")))
+    val res2 = Dijkstra[String](List((0, List("a"))), dest = "f")(lookup)
+    assert(res2._2==(11.0,List("a", "c", "f")))
+    println(res2._2)
   }
 }
 
