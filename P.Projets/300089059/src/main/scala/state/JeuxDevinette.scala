@@ -2,8 +2,8 @@ import scala.util._
 
 object Game extends App
 {
-  var smallest = 0;
-  var biggest = 100;
+  var smallest = 0
+  var biggest = 100
   var guess = new Random().nextInt(biggest)
   val help = "You can enter the following commands : smaller, bigger or exit"
 
@@ -17,10 +17,10 @@ object Game extends App
     println("Is your number : " + guess)
     () match
     {
-      case "smaller" => smaller
-      case "bigger" => bigger
-      case "exit" => sys.exit
-      case "?" => println(help)
+      case smaller => smaller
+      case bigger => bigger
+      case exit => sys.exit
+      case help => println
       case x => println("Unknown option: '" + x + "'")
     }
     guess = nextGuess
@@ -28,7 +28,7 @@ object Game extends App
 
   def smaller = biggest = guess
 
-  def bigger = smallest = guess;
+  def bigger = smallest = guess
 
   def nextGuess = (smallest + biggest) / 2
 
