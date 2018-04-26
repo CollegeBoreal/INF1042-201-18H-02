@@ -59,27 +59,21 @@ object Minimax {
     println("The optimal value is : " + res)
     val (max, min) = List(1, 5, 8, 9, 10, 12) partition ( _ >= 0 )
 
-    println(Minimax(List(14, 35, 46, 98)))
-    println(Minimax.apply(List(14, 35, 46, 98)))
-    println(apply(List(14, 35, 46, 98)))
 
-
-
+    assert(Minimax(List(10, 100))==100)
+    assert(Minimax.apply(List(7, 14, 21, 28, 35, 42, 49, 56))==42)
+    assert(Minimax.apply(List(100,200,300,400))==300)
     assert(Minimax(List(14, 35, 46, 98))==46)
     assert(Minimax.apply(List(14, 35, -7, 46, 98))==14)
     assert(Minimax.apply(List(1,2,3,4))==3)
     assert(Minimax.apply(List(154, 135, 277, 496, 978))==277)
     assert(Minimax.apply(List(53, 18, 90, 16, 998))==18)
-
     assert(Minimax.apply(List(100000000, 500000, 100))==100000000)
     assert(Minimax.apply(List(1,2,3,4))==3)
+    assert(Minimax.apply(List(10, 2, 6, 11,66, 33, 578, 2000, 1)).byteValue==66)
 
 
 
-
-
-
-    assert(Minimax.apply(List(1,2,3,4)).byteValue==3)
 
 
    
