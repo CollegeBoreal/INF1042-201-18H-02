@@ -3,6 +3,7 @@ import scalaz.State
 import scalaz.Scalaz._
 
 /*
+mon code consiste à sélectionner des balles qui sont de couleurs différentes mais pas de manière aléatoire
 https://mega.nz/#!CUEQTYwI!YJ061tocIymyuLZqtBzDXSwcCnojr7DfLjIMpwEqjyA
  */
 object StateExercise {
