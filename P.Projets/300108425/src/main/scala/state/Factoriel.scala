@@ -13,21 +13,15 @@ object Factoriel {
 
   type StateFac = State[Int, Long]
 
-  def factorial: StateFac =State { j =>
-
-    def fact(accumulator: Int):StateFac = State {fact =>
-      if (j <= 1)(long, 1)
-      else (fact(j * accumulator),(j - 1))
-    }
-
-
-    fact(1,j)
-
-
-
+  def factorial: StateFac = State{ n =>
+    if (n == 0)
+      (n,1)
+    else
+      (n,n * factorial.eval(n - 1))
   }
 
+
   def main(args: Array[String]): Unit = {
-   // (0 to 5) foreach ( i => println(factorial(i)) )
+    (0 to 5) foreach ( i => println(factorial.eval(i)) )
   }
 }
