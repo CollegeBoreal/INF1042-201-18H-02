@@ -1,11 +1,7 @@
 package state
 
-
-
-// import scalaz.{~>,Id,Free,Functor}, Free.Return, Free.Suspend, Id.Id
-
-
-    //    http://timperrett.com/2013/11/25/understanding-state-monad/
+    /*    http://timperrett.com/2013/11/25/understanding-state-monad
+          Exemple of traffic light with scala and Statemonad */
 
 
 object Signaling {
@@ -33,14 +29,10 @@ object Signaling {
   case class Signal(isOperational: Boolean, display: Map[Aspect, Mode])
 
 
-
   object Signal {
 
-    import scalaz.syntax.state._
 
     import scalaz.State, State._
-
-
 
     type ->[A,B] = (A,B)
 
@@ -48,15 +40,13 @@ object Signaling {
 
 
 
-    // dysfunctional lights revert to their flashing
-
-    // red lights to act as a stop sign to keep folks safe.
-
     val default = Signal(
 
       isOperational = false,
 
       display = Map(Red -> Flashing, Amber -> Off, Green -> Off))
+
+
 
 
     def enable: State[Signal, Boolean] =
@@ -73,7 +63,6 @@ object Signaling {
 
 
 
-    // combinators for valid states the signal can be in.
 
     def halt  = change(Red -> Solid, Amber -> Off,   Green -> Off)
 
@@ -99,9 +88,7 @@ object Signaling {
 
 
 
-    // TODO: requires validation to prevent invalid state changes
-
-    private def display(seq: Seq[Aspect -> Mode]): Signal => Signal = signal =>
+      private def display(seq: Seq[Aspect -> Mode]): Signal => Signal = signal =>
 
       if(signal.isOperational)
 
@@ -110,7 +97,6 @@ object Signaling {
       else default
 
   }
-
 
 
   def main(args: Array[String]): Unit = {
@@ -147,11 +133,40 @@ object Signaling {
 
 
 
-    program.eval(default).zipWithIndex.foreach { case (v,i) =>
+    val t = program.eval(default)
+    t.zipWithIndex.foreach { case (v,i) =>
 
       println(s"r$i - $v")
 
+
+
     }
+
+    val programm1 = for {
+      _ <- enable
+      r0 <- current
+    } yield r0 :: Nil
+
+    val programm2 = for {
+      _ <- halt
+      r1 <- current
+    } yield r1 :: Nil
+
+
+    val t1 = programm1.eval(default)
+    val r2 = List(Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off)))
+   // val t3 = programm3.eval(default)
+    val r3 = List(Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off)))
+
+    assert(t1== List(Signal(true,Map(Red -> Flashing, Amber -> Off, Green -> Off))))
+    assert(r2== List(Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off))))
+
+    println(r2)
+    assert(r3== List(Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off))))
+
+
+    assert(t==List(Signal(true,Map(Red -> Flashing, Amber -> Off, Green -> Off)), Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off)), Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off)), Signal(true,Map(Red -> Off, Amber -> Off, Green -> Solid)), Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Off))))
+
 
   }
 
