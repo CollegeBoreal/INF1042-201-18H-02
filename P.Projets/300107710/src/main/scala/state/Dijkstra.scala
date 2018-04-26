@@ -49,7 +49,20 @@ object DijkstraSearch {
     assert(res1._2==(20.0,List("a", "c", "d")))
     val res2 = Dijkstra[String](List((0, List("a"))), dest = "f")(lookup)
     assert(res2._2==(11.0,List("a", "c", "f")))
-    println(res2._2)
+    val res3 = Dijkstra[String](List((0, List("a"))), dest = "c")(lookup)
+    assert(res3._2==(9.0,List("a", "c")))
+    val res4 = Dijkstra[String](List((0, List("c"))), dest = "e")(lookup)
+    assert(res4._2==(17.0,List("c", "d", "e")))
+    val res5 = Dijkstra[String](List((0, List("b"))), dest = "f")(lookup)
+    assert(res5._2==(12.0,List("b", "c", "f")))
+    val res6 = Dijkstra[String](List((0, List("c"))), dest = "f")(lookup)
+    assert(res6._2==(2.0,List("c", "f")))
+    val res7 = Dijkstra[String](List((0, List("b"))), dest = "e")(lookup)
+    assert(res7._2==(21.0,List("b", "d", "e")))
+    val res8 = Dijkstra[String](List((0, List("b"))), dest = "d")(lookup)
+    assert(res8._2==(15.0,List("b", "d")))
+
+    println(res8._2)
   }
 }
 
