@@ -7,13 +7,13 @@ package state
      https://gist.github.com/tux2323/1362638             */
 
 import scala.util._
+import scalaz.State
 
 
 
 object JeuxDevinette {
   var smallest = 0
   var biggest = 100
-  var guess = new Random().nextInt(biggest)
   val help = "You can enter the following commands : smaller, bigger or exit"
 
   println("Guess a number between " + smallest + " and " + biggest)
@@ -22,8 +22,8 @@ object JeuxDevinette {
 
   println(help)
 
-  def count(number: Int): Int = {
-    def go(guess: Int, acc: Int): Int = {
+  def count: Int => Int = { number =>
+    def go(acc: Int): Int => Int = { guess =>
 
       if (acc == 0) {
         println("Is your number:" + help)
@@ -44,16 +44,18 @@ object JeuxDevinette {
 
         def nextGuess = (smallest + biggest) / 2
 
-        go(nextGuess, acc - 1)
+        go(acc - 1)(nextGuess)
       }
 
     }
 
-    go(0, number)
+    go(5)(number)
   }
 
   def main(args: Array[String]): Unit = {
+    var guess = new Random().nextInt(biggest)
     count(guess)
+
   }
 
 }
