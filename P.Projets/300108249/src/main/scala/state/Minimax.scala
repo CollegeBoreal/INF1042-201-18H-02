@@ -12,8 +12,7 @@ object Minimax {
   type Stack = List[Int]
   // A utility function to find Log n in base 2
 
-  //val t =(1, 2, 3, 4)
-  //val MinMax = (t._1, t._2)
+
   def log2(n: Int): Int =
     if (n == 1) 0
     else 1 + log2(n / 2)
@@ -68,9 +67,9 @@ object Minimax {
     assert(Minimax.apply(List(1,2,3,4))==3)
     assert(Minimax.apply(List(154, 135, 277, 496, 978))==277)
     assert(Minimax.apply(List(53, 18, 90, 16, 998))==18)
-    assert(Minimax.apply(List(100000000, 500000, 100))==100000000)
-    assert(Minimax.apply(List(1,2,3,4))==3)
-    assert(Minimax.apply(List(10, 2, 6, 11,66, 33, 578, 2000, 1)).byteValue==66)
+    assert(Minimax(List(100000000, 500000, 100))==100000000)
+    assert(Minimax(List(1,2,3,4))==3)
+    assert(Minimax(List(10, 2, 6, 11,66, 33, 578, 2000, 1)).byteValue==66)
 
 
 
