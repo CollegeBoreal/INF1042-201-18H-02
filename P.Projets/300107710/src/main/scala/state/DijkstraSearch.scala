@@ -69,7 +69,7 @@ object DijkstraSearch {
     val res8 = Dijkstra[String](List((0, List("b"))), dest = "d")(lookup)
     assert(res8._2==(15.0,List("b", "d")))
 
-    println(res8._2)
+    println(res._2)
   }
 }
 
