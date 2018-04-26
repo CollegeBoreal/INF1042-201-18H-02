@@ -2,6 +2,13 @@ package state
 
 import scalaz.State
 
+/*
+                             Dijkstra
+
+          https://rosettacode.org/wiki/Dijkstra%27s_algorithm#Scala
+ */
+
+
 object DijkstraSearch {
 
   type Path[A] = (Double, List[A])
