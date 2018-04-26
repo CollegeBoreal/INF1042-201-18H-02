@@ -11,7 +11,7 @@ import scalaz.State
 
 
 object JeuxDevinette {
-  type StateNumber = State [List[Int],Int]
+  type StateNumber = State[Int,Int]
   var smallest = 0
   var biggest = 100
   val help = "You can enter the following commands : smaller, bigger or exit"
