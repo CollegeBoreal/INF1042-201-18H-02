@@ -2,8 +2,7 @@ package state
 
 
 /*
- Exemple d un jeux sur scala avec State monad.
-
+ Exemple d un jeux de devinette sur scala avec State monad.
      https://gist.github.com/tux2323/1362638             */
 
 import scala.util._
@@ -12,6 +11,7 @@ import scalaz.State
 
 
 object JeuxDevinette {
+  type StateNumber = State [List[Int],Int]
   var smallest = 0
   var biggest = 100
   val help = "You can enter the following commands : smaller, bigger or exit"
@@ -22,7 +22,7 @@ object JeuxDevinette {
 
   println(help)
 
-  def count: Int => Int = { number =>
+  def count (State:Int ): StateNumber = State { number =>
     def go(acc: Int): Int => Int = { guess =>
 
       if (acc == 0) {
@@ -49,7 +49,7 @@ object JeuxDevinette {
 
     }
 
-    go(5)(number)
+    go(8)(number)
   }
 
   def main(args: Array[String]): Unit = {
@@ -59,6 +59,4 @@ object JeuxDevinette {
   }
 
 }
-
-
 
