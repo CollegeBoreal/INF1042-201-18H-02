@@ -10,10 +10,10 @@ import scala.util._
 
 
 
-object Game {
+object JeuxDevinette {
   var smallest = 0
   var biggest = 100
-  val guess = new Random().nextInt(biggest)
+  var guess = new Random().nextInt(biggest)
   val help = "You can enter the following commands : smaller, bigger or exit"
 
   println("Guess a number between " + smallest + " and " + biggest)
@@ -22,11 +22,6 @@ object Game {
 
   println(help)
 
-
-  def main(args: Array[String]): Unit = {
-    count("number":Int)
-
-  }
   def count(number: Int): Int = {
     def go(guess: Int, acc: Int): Int = {
 
@@ -57,6 +52,9 @@ object Game {
     go(0, number)
   }
 
+  def main(args: Array[String]): Unit = {
+    count(guess)
+  }
 
 }
 
