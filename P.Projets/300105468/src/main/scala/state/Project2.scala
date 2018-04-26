@@ -24,11 +24,11 @@ object Project2 {
 
     // assert with exec
     assert(count(16).exec(List(1,5,7, 9))==List(1, 5, 7, 9))
-    assert(count(16).exec(List(1,5,7, 15))==List(1, 5, 7, 15))
-    assert(count(16).exec(List(1,9,10, 18))==List(1, 9, 10, 18))
-    assert(count(16).exec(List(1,9,10, 18))==List(1, 9, 10, 18))
-    assert(count(16).exec(List(1,9,10, 18))==List(1, 9, 10, 18))
-    println(count(18).exec(List(1,9,11, 21))==List(1, 9, 11, 21))
+    assert(count(19).exec(List(1,5,7, 15))==List(1, 5, 7, 15))
+    assert(count(14).exec(List(1,9,10, 18))==List(1, 9, 10, 18))
+    assert(count(16).exec(List(1,9,13, 19))==List(1, 9, 13, 19))
+    assert(count(17).exec(List(1,9,15, 14))==List(1, 9, 15, 14))
+    assert(count(18).exec(List(1,9,11, 21))==List(1, 9, 11, 21))
     // assert with eval
     assert(count(15).eval(List(1, 5, 10, 25))==6)
     assert(count(16).eval(List(1,5,10, 15))==7)
