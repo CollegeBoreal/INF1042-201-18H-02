@@ -62,13 +62,13 @@ object Signaling {
 
     val program = for {
       _  <- enable
-      r0 <- current
+      r0 <- current // debuggin
       _  <- halt
-      r1 <- current
+      r1 <- current // debuggin
       _  <- ready
-      r2 <- current
+      r2 <- current // debuggin
       _  <- go
-      r3 <- current
+      r3 <- current // debuggin
       _  <- slow
       r4 <- current
     } yield r0 :: r1 :: r2 :: r3 :: r4 :: Nil
@@ -76,7 +76,8 @@ object Signaling {
     program.eval(default).zipWithIndex.foreach { case (v,i) =>
       println(s"r$i - $v")
 
-      
+      //assert(Signalignal(Map(Red -> Flashing, Ambre -> off, Green -> off)= r0))
+
       assert(true)
     }
   }
