@@ -3,15 +3,18 @@ package state
 
 /*
  Exemple d un jeux de devinette sur scala avec State monad.
-     https://gist.github.com/tux2323/1362638             */
+     https://gist.github.com/tux2323/1362638
+*/
 
-import scala.util._
+
+import scala.util.Random
 import scalaz.State
 
 
-
 object JeuxDevinette {
+
   type StateNumber = State[Int,Int]
+
   var smallest = 0
   var biggest = 100
   val help = "You can enter the following commands : smaller, bigger or exit"
@@ -22,12 +25,13 @@ object JeuxDevinette {
 
   println(help)
 
-  def count (State:Int ): StateNumber = State { number =>
-    def go(acc: Int): Int => Int = { guess =>
+  def count: StateNumber = State{ number =>
+
+    def go(acc: Int): StateNumber = State{ guess =>
 
       if (acc == 0) {
         println("Is your number:" + help)
-        0
+        (number,0)
       } else {
         println("Is your number : " + guess)
         readLine() match {
@@ -44,7 +48,7 @@ object JeuxDevinette {
 
         def nextGuess = (smallest + biggest) / 2
 
-        go(acc - 1)(nextGuess)
+        (number,go(acc - 1).eval(nextGuess))
       }
 
     }
@@ -53,10 +57,10 @@ object JeuxDevinette {
   }
 
   def main(args: Array[String]): Unit = {
-    var guess = new Random().nextInt(biggest)
-    count(guess)
+    val guess = new Random().nextInt(biggest)
+    count.eval(guess)
+
 
   }
 
 }
-

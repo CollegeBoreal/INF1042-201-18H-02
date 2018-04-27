@@ -59,17 +59,27 @@ object Minimax {
     val (max, min) = List(1, 5, 8, 9, 10, 12) partition ( _ >= 0 )
 
 
+
+
+
+    assert(Minimax(List(8, 19, 99))==19)
+    assert(Minimax(List(71, 114, 211, 218, 315, 412, 491, 156))==412)
+    assert(Minimax(List(80,10,15,115, 180, 77))==15)
+    assert(Minimax(List(142, 353, 44, 918))==142)
+    assert(Minimax.apply(List(14, 35, -7, 46, 98))==14)
+    assert(Minimax.apply(List(1,2,3,4))==3)
     assert(Minimax(List(10, 100))==100)
     assert(Minimax.apply(List(7, 14, 21, 28, 35, 42, 49, 56))==42)
     assert(Minimax.apply(List(100,200,300,400))==300)
     assert(Minimax(List(14, 35, 46, 98))==46)
-    assert(Minimax.apply(List(14, 35, -7, 46, 98))==14)
     assert(Minimax.apply(List(1,2,3,4))==3)
     assert(Minimax.apply(List(154, 135, 277, 496, 978))==277)
     assert(Minimax.apply(List(53, 18, 90, 16, 998))==18)
     assert(Minimax(List(100000000, 500000, 100))==100000000)
-    assert(Minimax(List(1,2,3,4))==3)
+    assert(Minimax(List(1,2,4,6,7))==4)
     assert(Minimax(List(10, 2, 6, 11,66, 33, 578, 2000, 1)).byteValue==66)
+    assert(Minimax(List(33, 578, 2000, 1)).byteValue==33)
+    assert(Minimax(List(410, 112, 61, 117,677)).byteValue==112)
 
 
 
