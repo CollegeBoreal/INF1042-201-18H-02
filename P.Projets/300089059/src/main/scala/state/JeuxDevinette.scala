@@ -5,10 +5,8 @@ package state
  Exemple d un jeux de devinette sur scala avec State monad.
      https://gist.github.com/tux2323/1362638
 */
-<<<<<<< HEAD
 
-=======
->>>>>>> 71d216b04731759c5dee2f33690e82f3c51bd671
+
 import scala.util.Random
 import scalaz.State
 
@@ -61,12 +59,8 @@ object JeuxDevinette {
   def main(args: Array[String]): Unit = {
     val guess = new Random().nextInt(biggest)
     count.eval(guess)
-<<<<<<< HEAD
-    assert(new Random(10).nextInt(biggest)==25)
-    println
 
-=======
->>>>>>> 71d216b04731759c5dee2f33690e82f3c51bd671
+
   }
 
 }
