@@ -70,6 +70,42 @@ object DijkstraSearch {
     assert(res8._2==(15.0,List("b", "d")))
 
     println(res._2)
+
+    // Grokking Algorithm
+    val algoBook_p131 = Map(
+      "start" -> List((6.0, "a"), (2.0, "b")),
+      "a" -> List((1.0, "fin")),
+      "b" -> List((3.0, "a"), (5.0, "fin")),
+      "fin" -> Nil
+    )
+
+    val (weight1,_) = Dijkstra[String](List((0, List("start"))), dest = "fin").eval(algoBook_p131)
+    assert(weight1==6)
+
+    val algoBook_A_p139 = Map(
+      "start" -> List((5.0, "a"), (2.0, "b")),
+      "a" -> List((4.0, "c"), (2.0, "d")),
+      "b" -> List((8.0, "a"), (7.0, "d")),
+      "c" -> List((6.0, "d"), (3.0, "fin")),
+      "d" -> List((1.0, "fin")),
+      "fin" -> Nil
+    )
+
+    val (weight2,_) = Dijkstra[String](List((0, List("start"))), dest = "fin").eval(algoBook_A_p139)
+    assert(weight2==8)
+
+    val algoBook_B_p139 = Map(
+      "start" -> List((10.0, "a")),
+      "a" -> List((20.0, "c")),
+      "b" -> List((1.0, "a")),
+      "c" -> List((1.0, "b"), (30.0, "fin")),
+      "fin" -> Nil
+    )
+
+//    assertThrows[StackOverflowError] {
+//      val (weight3, _) = Dijkstra[String](List((0, List("start"))), dest = "fin").eval(algoBook_B_p139)
+//    }
+
   }
 }
 
