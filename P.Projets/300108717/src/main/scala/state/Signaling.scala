@@ -152,21 +152,38 @@ object Signaling {
       r1 <- current
     } yield r1 :: Nil
 
+    val programm3 = for {
+       _<- ready
+      r2 <- current
+
+    }yield r2 :: Nil
+
+
 
     val t1 = programm1.eval(default)
-    val r2 = List(Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off)))
-   // val t3 = programm3.eval(default)
-    val r3 = List(Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off)))
-    val r4 = List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Solid)))
-    val r5 = List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Off)))
+
+    val t2 = programm2.eval(default)
+
+    val t3 = programm3.eval(default)
 
     assert(t1== List(Signal(true,Map(Red -> Flashing, Amber -> Off, Green -> Off))))
-    assert(r2== List(Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off))))
+    assert(t2==List(Signal(false,Map(Red->Flashing,Amber-> Off, Green->Off))))
+    assert(t3==List(Signal(false,Map(Red -> Flashing, Amber -> Off, Green ->Off))))
 
-    println(r2)
-    assert(r3== List(Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off))))
-    assert(r4== List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Solid))))
-    assert(r5== List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Off))))
+
+
+    //val r2 = List(Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off)))
+
+   // val r3 = List(Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off)))
+    //val r4 = List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Solid)))
+    //val r5 = List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Off)))
+
+    //assert(r2== List(Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off))))
+
+    //println(r2)
+    //assert(r3== List(Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off))))
+    //assert(r4== List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Solid))))
+    //assert(r5== List(Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Off))))
 
     assert(t==List(Signal(true,Map(Red -> Flashing, Amber -> Off, Green -> Off)), Signal(true,Map(Red -> Solid, Amber -> Off, Green -> Off)), Signal(true,Map(Red -> Solid, Amber -> Solid, Green -> Off)), Signal(true,Map(Red -> Off, Amber -> Off, Green -> Solid)), Signal(true,Map(Red -> Off, Amber -> Solid, Green -> Off))))
 
